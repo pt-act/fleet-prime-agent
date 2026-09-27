@@ -8,7 +8,13 @@ import { ChatStreamEventSchema } from "@prime-agent/web-protocol/chat-protocol.z
 import type { ChatMessage, ChatStatus } from "@prime-agent/web-protocol/chat-types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ChatClient } from "./chat-client";
-import { chatErrorFromStreamEvent, isUnknownSessionError, parseWithSchema } from "./chat-fetch";
+import {
+	chatErrorFromStreamEvent,
+	type EventStreamLike,
+	eventStreamConstructor,
+	isUnknownSessionError,
+	parseWithSchema,
+} from "./chat-fetch";
 import {
 	applyChatStreamEvent,
 	type ChatStreamSnapshot,
@@ -157,7 +163,7 @@ export function useSubagentChat({
 		}
 
 		let disposed = false;
-		let source: EventSource | null = null;
+		let source: EventStreamLike | null = null;
 		let reconnectTimer: ReturnType<typeof setTimeout> | null = null;
 		let reconnectAttempt = 0;
 		let reconnectClassificationInFlight = false;
@@ -252,7 +258,7 @@ export function useSubagentChat({
 				});
 
 				if (childStatusValue !== "running" && childStatusValue !== "recovering") return;
-				if (typeof window === "undefined" || typeof EventSource === "undefined") return;
+				if (typeof window === "undefined") return;
 
 				connect = () => {
 					if (disposed || !isCurrent() || terminalStream) return;
@@ -262,7 +268,7 @@ export function useSubagentChat({
 					});
 					source?.close();
 					try {
-						source = new EventSource(url);
+						source = new eventStreamConstructor(url);
 					} catch {
 						void classifyAndReconnect();
 						return;

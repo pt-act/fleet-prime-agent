@@ -1,0 +1,710 @@
+{
+	"caseId": "RB-EVIDENCE",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "contract fingerprint recomputes to the declared spec fingerprint",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-01.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-01.json: record produced by this run",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-02.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-02.json: record produced by this run",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-03.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-03.json: record produced by this run",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-04.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-04.json: record produced by this run",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-05.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-05.json: record produced by this run",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-06.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-06.json: record produced by this run",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-EVIDENCE.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-EVIDENCE.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-EVIDENCE.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-EVIDENCE.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-EVIDENCE.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-EVIDENCE.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-EVIDENCE.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-EVIDENCE.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-PBT.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/chromium/RB-PBT.json: record produced by this run",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-01.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-01.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-01.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-01.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-01.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-01.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-01.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-01.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-02.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-02.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-02.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-02.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-02.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-02.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-02.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-02.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-03.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-03.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-03.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-03.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-03.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-03.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-03.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-03.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-04.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-04.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-04.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-04.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-04.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-04.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-04.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-04.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-05.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-05.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-05.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-05.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-05.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-05.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-05.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-05.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-06.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-06.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-06.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-06.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-06.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-06.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-06.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-06.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-EVIDENCE.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-EVIDENCE.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-EVIDENCE.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-EVIDENCE.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-EVIDENCE.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-EVIDENCE.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-EVIDENCE.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-EVIDENCE.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-PBT.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-PBT.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-PBT.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-PBT.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-PBT.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-PBT.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/firefox/RB-PBT.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-PBT.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/webkit/RB-01.json: caseId matches",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/webkit/RB-01.json: verdict pass",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/webkit/RB-01.json: nonempty assertions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/webkit/RB-01.json: exitCode 0",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/webkit/RB-01.json: sourceCommit matches HEAD",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/webkit/RB-01.json: command recorded",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "cases/darwin-x64/webkit/RB-01.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-01.json)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "chromium: case record present for RB-01",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "chromium: case record present for RB-02",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "chromium: case record present for RB-03",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "chromium: case record present for RB-04",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "chromium: case record present for RB-05",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "chromium: case record present for RB-06",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "chromium: case record present for RB-PBT",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "report re-read complete",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "report carries the spec fingerprint",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "report carries the source commit",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "report lists every verifier command",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-EVIDENCE( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "chromium",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-EVIDENCE.json",
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/report.json"
+	],
+	"timestamp": "2026-09-26T05:15:01.645Z"
+}

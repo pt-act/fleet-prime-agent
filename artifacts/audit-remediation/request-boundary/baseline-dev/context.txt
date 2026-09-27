@@ -1,0 +1,8 @@
+=== baseline context ===
+29de85bd chore(release): version @qredence/fleet 0.5.7
+--- git status (expect empty) ---
+?? artifacts/
+node v24.1.0 / pnpm 11.15.1
+port=3107 started 2026-09-10T04:12:53Z
+vite dev PID 3865 (log /tmp/rb-dev.log)
+ready=1 after ~6s

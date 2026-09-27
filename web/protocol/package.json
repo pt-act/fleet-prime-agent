@@ -1,31 +1,33 @@
 {
-  "name": "@prime-agent/web-protocol",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "main": "./src/index.ts",
-  "exports": {
-    ".": "./src/index.ts",
-    "./chat-types": "./src/chat-types.ts",
-    "./chat-protocol": "./src/chat-protocol.ts",
-    "./chat-protocol.zod": "./src/chat-protocol.zod.ts",
-    "./openui-artifact": "./src/openui-artifact.ts",
-    "./fleet-contract": "./src/fleet-contract.ts",
-    "./model-patterns": "./src/model-patterns.ts",
-    "./provider-catalog": "./src/provider-catalog.ts",
-    "./session-label": "./src/session-label.ts",
-    "./schemas/*": "./src/schemas/*"
-  },
-  "scripts": {
-    "typecheck": "tsgo --noEmit"
-  },
-  "dependencies": {
-    "@asteasolutions/zod-to-openapi": "^8.5.0",
-    "@openuidev/lang-core": "^0.2.15",
-    "zod": "^4.4.3"
-  },
-  "devDependencies": {
-    "@types/node": "^25.9.5",
-    "typescript": "^6.0.3"
-  }
+	"name": "@prime-agent/web-protocol",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"main": "./src/index.ts",
+	"exports": {
+		".": "./src/index.ts",
+		"./chat-types": "./src/chat-types.ts",
+		"./chat-protocol": "./src/chat-protocol.ts",
+		"./chat-protocol.zod": "./src/chat-protocol.zod.ts",
+		"./openui-artifact": "./src/openui-artifact.ts",
+		"./fleet-contract": "./src/fleet-contract.ts",
+		"./model-patterns": "./src/model-patterns.ts",
+		"./provider-catalog": "./src/provider-catalog.ts",
+		"./request-policy": "./src/request-policy.ts",
+		"./request-policy.zod": "./src/request-policy.zod.ts",
+		"./session-label": "./src/session-label.ts",
+		"./schemas/*": "./src/schemas/*"
+	},
+	"scripts": {
+		"typecheck": "tsgo --noEmit"
+	},
+	"dependencies": {
+		"@asteasolutions/zod-to-openapi": "^8.5.0",
+		"@openuidev/lang-core": "^0.2.15",
+		"zod": "^4.4.3"
+	},
+	"devDependencies": {
+		"@types/node": "^25.9.5",
+		"typescript": "^6.0.3"
+	}
 }

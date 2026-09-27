@@ -8,7 +8,7 @@ const BodySchema = z.object({
 });
 
 export function handleChatAbortPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const body = BodySchema.parse(raw);
 		const sessionId = body.sessionId;

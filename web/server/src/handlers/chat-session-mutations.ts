@@ -11,7 +11,7 @@ const RenameSessionSchema = z.object({
 const DeleteSessionSchema = z.object({ sessionId: SessionIdSchema });
 
 export function handleChatSessionRenamePatch(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const body = RenameSessionSchema.parse(await request.json().catch(() => ({})));
 		const bridge = getBridge();
 		const session = bridge.getSession(body.sessionId) ?? (await bridge.resumeSessionById(body.sessionId));
@@ -24,7 +24,7 @@ export function handleChatSessionRenamePatch(request: Request): Promise<Response
 }
 
 export function handleChatSessionDelete(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const body = DeleteSessionSchema.parse(await request.json().catch(() => ({})));
 		const deleted = await getBridge().deleteSession(body.sessionId);
 		if (!deleted) {

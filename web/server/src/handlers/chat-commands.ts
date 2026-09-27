@@ -63,7 +63,7 @@ const BUILTIN_SLASH_COMMANDS: ReadonlyArray<{
 ];
 
 export function handleChatCommandsGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const cwd = await cwdForRequest(request);
 		const config = getPrimeConfig();
 		const loader = await config.resourceLoaderFor(cwd);

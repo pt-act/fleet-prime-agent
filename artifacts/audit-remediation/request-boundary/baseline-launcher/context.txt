@@ -1,0 +1,8 @@
+=== baseline context (packaged launcher) ===
+29de85bd chore(release): version @qredence/fleet 0.5.7
+--- git status (expect empty) ---
+?? artifacts/
+node v24.1.0
+port=3108 started 2026-09-10T04:14:36Z
+launcher PID 5144 (log /tmp/rb-launcher.log)
+ready=1 after ~2s

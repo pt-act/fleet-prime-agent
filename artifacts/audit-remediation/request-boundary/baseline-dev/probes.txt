@@ -1,0 +1,28 @@
+--- F07-control: same-origin GET /api/health ---
+status=200
+body(first 500): {"ok":true,"kernel":{"ok":false,"reason":"not-started"},"uptimeMs":8488.458096}
+
+--- F07-dev-1: cross-port loopback origin POST /api/chat/new ---
+status=200
+body(first 500): {"session":{"sessionId":"01a08984-f30a-7390-8e28-780d9c9a66d0","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c"},"messages":[],"planPresentations":[],"presentation":{"revision":0,"userBash":[],"rlmChildren":[],"refinements":[],"artifactRuns":[],"thinkingLevel":"off","serviceTier":"default"}}
+
+--- F07-dev-2: cross-host+port loopback origin POST /api/chat/new ---
+status=200
+body(first 500): {"session":{"sessionId":"01a08984-fe18-7021-9e6d-08d5df914064","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c"},"messages":[],"planPresentations":[],"presentation":{"revision":0,"userBash":[],"rlmChildren":[],"refinements":[],"artifactRuns":[],"thinkingLevel":"off","serviceTier":"default"}}
+
+--- F07-dev-3: NON-loopback origin POST /api/chat/new (dev fully ungated?) ---
+status=200
+body(first 500): {"session":{"sessionId":"01a08985-1484-77f3-9493-9facb6d3e9ee","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c"},"messages":[],"planPresentations":[],"presentation":{"revision":0,"userBash":[],"rlmChildren":[],"refinements":[],"artifactRuns":[],"thinkingLevel":"off","serviceTier":"default"}}
+
+--- F07-dev-4: cross-port loopback origin GET /api/chat/sessions ---
+status=200
+body(first 500): {"sessions":[{"sessionId":"01a08985-1484-77f3-9493-9facb6d3e9ee","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c","title":"(no messages)","createdAt":"2026-09-10T04:13:15.268Z","updatedAt":"2026-09-10T04:13:15.530Z","status":"idle","messageCount":0,"firstMessage":"(no messages)"},{"sessionId":"01a08984-fe18-7021-9e6d-08d5df914064","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c","title":"(no messages)","createdAt":"2026-09-10T04:13:09.528Z","updatedAt":"2026-09-10T04:13:09.684Z","status":"id
+
+--- F26-1: invalid sessionId (attachment GET path, SessionIdSchema.parse throws) ---
+status=500
+body(first 700): {"code":"UNKNOWN_ERROR","message":"[\n  {\n    \"origin\": \"string\",\n    \"code\": \"invalid_format\",\n    \"format\": \"uuid\",\n    \"pattern\": \"[local path]\",\n    \"path\": [],\n    \"message\": \"Invalid UUID\"\n  }\n]"}
+
+--- F26-2: invalid projectId (ProjectIdSchema.parse throws, checks input echo) ---
+status=400
+body(first 700): {"message":"GET /api/chat/session requires ?sessionId="}
+

@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { getProviders as getBuiltinProviders } from "@earendil-works/pi-ai";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { testRequest } from "./test-request";
 
 const mocks = vi.hoisted(() => {
 	const keys = new Map<string, string>();
@@ -42,7 +43,7 @@ describe("chat providers custom/OCC write path", () => {
 	});
 
 	it("GET synthesizes the default OCC row", async () => {
-		const response = await handleChatProvidersGet(new Request("http://localhost/api/chat/providers"));
+		const response = await handleChatProvidersGet(testRequest("http://localhost:3000/api/chat/providers"));
 		const body = (await response.json()) as { providers: Array<Record<string, unknown>> };
 		const occ = body.providers.find((p) => p.id === "openai-chat-completions");
 		expect(occ).toMatchObject({
@@ -54,7 +55,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("creates a custom provider: models.json entry + auth key + listed as configured", async () => {
 		const response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -93,7 +94,7 @@ describe("chat providers custom/OCC write path", () => {
 
 		// Second creation with the same name allocates a suffixed id.
 		const second = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -112,7 +113,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("creates a named OCC instance from the generic slot", async () => {
 		const response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -150,7 +151,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("stores the engine Google API identifier and hides non-OpenAI discovery", async () => {
 		const response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -177,7 +178,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("configures the default OCC slot without dropping the synth row", async () => {
 		const response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -201,7 +202,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("updates an existing custom provider without losing fields", async () => {
 		await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -215,7 +216,7 @@ describe("chat providers custom/OCC write path", () => {
 			}),
 		);
 		const update = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -238,7 +239,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("falls back to stored managed-provider fields when update fields are blank", async () => {
 		await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -253,7 +254,7 @@ describe("chat providers custom/OCC write path", () => {
 		);
 
 		const response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -276,7 +277,7 @@ describe("chat providers custom/OCC write path", () => {
 	it("rejects invalid custom payloads with 400, not 500", async () => {
 		// Missing displayName for a new instance.
 		let response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -292,7 +293,7 @@ describe("chat providers custom/OCC write path", () => {
 
 		// Non-URL baseUrl.
 		response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -309,7 +310,7 @@ describe("chat providers custom/OCC write path", () => {
 
 		// No models for a custom provider.
 		response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -326,7 +327,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("DELETE removes models.json entry and credential for managed providers", async () => {
 		await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({
@@ -340,7 +341,7 @@ describe("chat providers custom/OCC write path", () => {
 			}),
 		);
 		const response = await handleChatProvidersDelete(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "DELETE",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({ providerId: "custom+gone" }),
@@ -355,7 +356,7 @@ describe("chat providers custom/OCC write path", () => {
 
 	it("catalog providers keep the key-only path", async () => {
 		const response = await handleChatProvidersPost(
-			new Request("http://localhost/api/chat/providers", {
+			testRequest("http://localhost:3000/api/chat/providers", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({ providerId: "deepseek", apiKey: "sk-ds" }),
@@ -381,7 +382,7 @@ describe("native builtin provider coverage", () => {
 	});
 
 	it("lists every engine builtin exactly once with a name and a hint policy", async () => {
-		const response = await handleChatProvidersGet(new Request("http://localhost/api/chat/providers"));
+		const response = await handleChatProvidersGet(testRequest("http://localhost:3000/api/chat/providers"));
 		const body = (await response.json()) as { providers: Array<Record<string, unknown>> };
 
 		const byId = new Map<string, Record<string, unknown>>();
@@ -410,7 +411,7 @@ describe("native builtin provider coverage", () => {
 	});
 
 	it("gives anthropic and amazon-bedrock the env hints the engine honors", async () => {
-		const response = await handleChatProvidersGet(new Request("http://localhost/api/chat/providers"));
+		const response = await handleChatProvidersGet(testRequest("http://localhost:3000/api/chat/providers"));
 		const body = (await response.json()) as { providers: Array<Record<string, unknown>> };
 		const byId = new Map(body.providers.map((row) => [row.id as string, row]));
 
@@ -422,7 +423,7 @@ describe("native builtin provider coverage", () => {
 	it("round-trips an API key for key-auth builtins without touching models.json", async () => {
 		for (const providerId of ["openai", "openrouter", "anthropic", "amazon-bedrock"]) {
 			const post = await handleChatProvidersPost(
-				new Request("http://localhost/api/chat/providers", {
+				testRequest("http://localhost:3000/api/chat/providers", {
 					method: "POST",
 					headers: { "content-type": "application/json" },
 					body: JSON.stringify({ providerId, apiKey: `sk-${providerId}` }),
@@ -433,7 +434,7 @@ describe("native builtin provider coverage", () => {
 			expect(postBody.providers.find((p) => p.id === providerId)?.isConfigured).toBe(true);
 
 			const del = await handleChatProvidersDelete(
-				new Request("http://localhost/api/chat/providers", {
+				testRequest("http://localhost:3000/api/chat/providers", {
 					method: "DELETE",
 					headers: { "content-type": "application/json" },
 					body: JSON.stringify({ providerId }),

@@ -1,0 +1,31 @@
+--- F07L-control: same-origin GET /api/health ---
+status=200
+body(first 400): {"ok":true,"kernel":{"ok":false,"reason":"not-started"},"uptimeMs":2998.753382}
+
+--- F07L-1: cross-port loopback origin POST /api/chat/new ---
+status=200
+body(first 400): {"session":{"sessionId":"01a08986-6d4d-7256-ad71-d571ee41f70f","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c"},"messages":[],"planPresentations":[],"presentation":{"revision":0,"userBash":[],"rlmChildren":[],"refinements":[],"artifactRuns":[],"thinkingLevel":"off","serviceTier":"default"}}
+
+--- F07L-2: cross-host+port loopback origin POST /api/chat/new ---
+status=200
+body(first 400): {"session":{"sessionId":"01a08986-7cae-740b-9f55-ba694e3c98e8","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c"},"messages":[],"planPresentations":[],"presentation":{"revision":0,"userBash":[],"rlmChildren":[],"refinements":[],"artifactRuns":[],"thinkingLevel":"off","serviceTier":"default"}}
+
+--- F07L-3: NON-loopback origin POST /api/chat/new (baseline rejects?) ---
+status=403
+body(first 400): Loopback requests only
+
+--- F07L-4: cross-port loopback origin GET /api/chat/sessions ---
+status=200
+body(first 400): {"sessions":[{"sessionId":"01a08986-7cae-740b-9f55-ba694e3c98e8","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c","title":"(no messages)","createdAt":"2026-09-10T04:14:47.470Z","updatedAt":"2026-09-10T04:14:47.813Z","status":"idle","messageCount":0,"firstMessage":"(no messages)"},{"sessionId":"01a08986-6d4d-7256-ad71-d571ee41f70f","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c","title":"(no m
+
+--- F07L-5: mismatched loopback Host port (Host: 127.0.0.1:9999) ---
+status=200
+body(first 400): {"ok":true,"kernel":{"ok":false,"reason":"pending"},"uptimeMs":11827.925107000001}
+
+--- F07L-6: NO Origin header POST /api/chat/new ---
+status=200
+body(first 400): {"session":{"sessionId":"01a08986-c3b6-737c-ac47-01ed10a2bea3","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c"},"messages":[],"planPresentations":[],"presentation":{"revision":0,"userBash":[],"rlmChildren":[],"refinements":[],"artifactRuns":[],"thinkingLevel":"off","serviceTier":"default"}}
+
+--- F26L-1: invalid sessionId via launcher (envelope parity with dev) ---
+status=500
+body(first 400): {"code":"UNKNOWN_ERROR","message":"[\n  {\n    \"origin\": \"string\",\n    \"code\": \"invalid_format\",\n    \"format\": \"uuid\",\n    \"pattern\": \"[local path]\",\n    \"path\": [],\n    \"message\": \"Invalid UUID\"\n  }\n]"}

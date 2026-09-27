@@ -3,7 +3,22 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import { ProjectRegistry } from "../project-registry";
+import { mintBootstrapGrant } from "../request-policy";
 import { safeErrorMessage, wrapApiHandler } from "../wrap-api-handler";
+
+/** A request that passes request-boundary admission (loopback exact-origin + current grant). */
+function admittedRequest(): Request {
+	const { grant } = mintBootstrapGrant();
+	return new Request("http://127.0.0.1:3000/api/health", {
+		method: "GET",
+		headers: {
+			host: "127.0.0.1:3000",
+			origin: "http://127.0.0.1:3000",
+			authorization: `Bearer ${grant}`,
+			"x-fleet-bound-origin": "http://127.0.0.1:3000",
+		},
+	});
+}
 
 const temporaryDirectories: string[] = [];
 
@@ -178,16 +193,17 @@ describe("ProjectRegistry", () => {
 		const failure = new Error(`EPERM: operation not permitted, open '${join(root, "fleet-projects.json.123.tmp")}'`);
 		harness.failNextWrite(failure);
 
-		const response = await wrapApiHandler(async () => {
+		const response = await wrapApiHandler(admittedRequest(), async () => {
 			await registry.assignSession("session-1", project.projectId);
 			return Response.json({ ok: true });
 		});
 		const failedTemporaryPath = harness.writePaths.at(-1)!;
 
 		expect(response.status).toBe(500);
-		const body = (await response.json()) as { message: string };
-		expect(body.message).toBe("Could not save the session's project assignment. Please try again.");
-		expect(body.message).not.toContain(root);
+		const body = (await response.json()) as { error: { code: string; message: string } };
+		expect(body.error.code).toBe("INTERNAL_ERROR");
+		expect(body.error.message).toBe("Internal server error");
+		expect(JSON.stringify(body)).not.toContain(root);
 		expect(await pathExists(failedTemporaryPath)).toBe(false);
 
 		await expect(registry.assignSession("session-1", project.projectId)).resolves.toBeUndefined();
@@ -220,7 +236,7 @@ describe("ProjectRegistry", () => {
 		const renameFailure = new Error("rename failed");
 		harness.failNextRename(renameFailure);
 
-		const response = await wrapApiHandler(async () => {
+		const response = await wrapApiHandler(admittedRequest(), async () => {
 			await registry.assignSession("session-1", project.projectId);
 			return Response.json({ ok: true });
 		});
@@ -228,8 +244,9 @@ describe("ProjectRegistry", () => {
 		await expect(registry.assignSession("session-1", project.projectId)).resolves.toBeUndefined();
 
 		expect(response.status).toBe(500);
-		const body = (await response.json()) as { message: string };
-		expect(body.message).toBe("Could not save the session's project assignment. Please try again.");
+		const body = (await response.json()) as { error: { code: string; message: string } };
+		expect(body.error.code).toBe("INTERNAL_ERROR");
+		expect(body.error.message).toBe("Internal server error");
 		expect(await pathExists(failedTemporaryPath)).toBe(false);
 		const assignmentTemporaryPaths = harness.writePaths.slice(writesBeforeAssignments);
 		expect(assignmentTemporaryPaths).toHaveLength(2);

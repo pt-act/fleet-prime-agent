@@ -10,10 +10,10 @@ import { sessionStatus } from "./projects";
  *
  * @returns A JSON response containing the matching chat sessions.
  */
-export function handleChatSessionsGet(_request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+export function handleChatSessionsGet(request: Request): Promise<Response> {
+	return wrapApiHandler(request, async () => {
 		const bridge = getBridge();
-		const requestedProjectId = new URL(_request.url).searchParams.get("projectId");
+		const requestedProjectId = new URL(request.url).searchParams.get("projectId");
 		const projectId = requestedProjectId ? ProjectIdSchema.parse(requestedProjectId) : undefined;
 		const sessions = await bridge.listSessions();
 		const formatted = await Promise.all(

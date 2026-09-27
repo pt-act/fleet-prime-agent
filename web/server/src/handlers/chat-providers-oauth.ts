@@ -195,7 +195,7 @@ function oauthDeps(): OAuthLoginDeps {
 }
 
 export function handleChatProvidersOAuthPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const body = ChatProviderOAuthLoginRequestSchema.parse(raw);
 

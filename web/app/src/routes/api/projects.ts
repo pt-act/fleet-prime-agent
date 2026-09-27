@@ -3,12 +3,14 @@ import {
 	handleProjectPatch,
 	handleProjectsGet,
 	handleProjectsPost,
+	methodNotAllowed,
 } from "@prime-agent/web-server";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/api/projects")({
 	server: {
 		handlers: {
+			ANY: () => methodNotAllowed(),
 			DELETE: ({ request }) => handleProjectDelete(request),
 			GET: ({ request }) => handleProjectsGet(request),
 			PATCH: ({ request }) => handleProjectPatch(request),

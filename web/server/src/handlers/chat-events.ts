@@ -179,7 +179,7 @@ function createSseResponse(request: Request, bridge: PrimeBridge, source: SseSou
  * @returns An SSE response for the requested stream, or an error response when the request is invalid or the stream is unavailable
  */
 export function handleChatEventsGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const url = new URL(request.url);
 		const sessionIdParam = url.searchParams.get("sessionId");
 		const parentSessionIdParam = url.searchParams.get("parentSessionId");

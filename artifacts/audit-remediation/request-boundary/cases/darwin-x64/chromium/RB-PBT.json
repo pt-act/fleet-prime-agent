@@ -1,0 +1,104 @@
+{
+	"caseId": "RB-PBT",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "valid class >= 25% (got 328)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "invalid class >= 25% (got 337)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "edge class >= 25% (got 335)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "zero discards: 1000 === 1000 runs",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "handler ran exactly once (got 1)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "wrapper preserves the payload status",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "wrapper preserves the payload body",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 200 agrees with model ok for origin http://127.0.0.1:58791",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 403 agrees with model ORIGIN_DENIED for origin https://audit.invalid",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://localhost:4999",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 403 agrees with model ORIGIN_DENIED for origin null",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://localhost.evil.com",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://127.0.0.1.evil.com",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://[::1]:4999",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://127.0.0.1:65535",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "P3 executed 1000 live schema-failure cases",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "server logs stay free of submitted secret markers",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-PBT( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "chromium",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-PBT.json"
+	],
+	"timestamp": "2026-09-26T05:15:01.555Z"
+}

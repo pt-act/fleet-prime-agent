@@ -8,7 +8,7 @@ import type {
 import type { ChatMessage } from "@prime-agent/web-protocol/chat-types";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { ChatClient } from "./chat-client";
-import { ChatRequestError } from "./chat-fetch";
+import { type FetchEventMessage, setEventStreamConstructorForTests, ChatRequestError } from "./chat-fetch";
 import { useSubagentChat } from "./use-subagent-chat";
 
 const presentation: PrimeAgentSessionPresentation = {
@@ -35,7 +35,7 @@ function response(messages: Array<ChatMessage> = []): ChatSessionResponse {
 type TestEventSource = {
 	close: ReturnType<typeof vi.fn>;
 	onerror: (() => void) | null;
-	onmessage: ((event: MessageEvent<string>) => void) | null;
+	onmessage: ((event: FetchEventMessage) => void) | null;
 	emit: (event: ChatStreamEvent | { type: "connected"; sessionId: string; streamGeneration: string }) => void;
 };
 
@@ -43,7 +43,7 @@ function installEventSource() {
 	const instances: Array<TestEventSource> = [];
 	class EventSourceStub {
 		onerror: (() => void) | null = null;
-		onmessage: ((event: MessageEvent<string>) => void) | null = null;
+		onmessage: ((event: FetchEventMessage) => void) | null = null;
 		readonly close = vi.fn();
 
 		constructor(_url: string) {
@@ -59,7 +59,7 @@ function installEventSource() {
 			);
 		}
 	}
-	vi.stubGlobal("EventSource", EventSourceStub);
+	setEventStreamConstructorForTests(EventSourceStub);
 	return instances;
 }
 
@@ -86,6 +86,7 @@ function createHarness(loadSession: (parentSessionId: string, childId: string) =
 
 afterEach(() => {
 	vi.unstubAllGlobals();
+	setEventStreamConstructorForTests(null);
 	vi.restoreAllMocks();
 });
 

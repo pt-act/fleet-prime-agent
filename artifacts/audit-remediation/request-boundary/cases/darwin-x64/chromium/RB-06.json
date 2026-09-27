@@ -1,0 +1,1399 @@
+{
+	"caseId": "RB-06",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "route matrix covers all mounted routes (38 entries)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/bootstrap",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/abort",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: PUT /api/chat/artifacts",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/command",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/commands",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/events",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/model",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/models/discover",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/models",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/new",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/providers/oauth",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/providers",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/providers",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: DELETE /api/chat/providers",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/question",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/resources",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/resume",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: PUT /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: PATCH /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: DELETE /api/chat/sessions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/sessions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: PATCH /api/chat/sessions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/chat/settings",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: PATCH /api/chat/settings",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/chat",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/health",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/projects/browse",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/projects/fork",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: DELETE /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: PATCH /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/workspace/browse",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/workspace/file",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: POST /api/workspace/root",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "mounted route classified: GET /api/workspace/tree",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/bootstrap",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/health",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/abort",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: PUT /api/chat/artifacts",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/command",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/commands",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/events",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/model",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/models",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/models/discover",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/new",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/providers",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/providers",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: DELETE /api/chat/providers",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/providers/oauth",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/question",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/resources",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/resume",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: PUT /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: PATCH /api/chat/session",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/sessions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: DELETE /api/chat/sessions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: PATCH /api/chat/sessions",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/chat/settings",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: PATCH /api/chat/settings",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: PATCH /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: DELETE /api/projects",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/projects/browse",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/projects/fork",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/workspace/browse",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/workspace/file",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: POST /api/workspace/root",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classified route mounted: GET /api/workspace/tree",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/bootstrap) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/abort) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(PUT /api/chat/artifacts) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/command) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/commands) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/events) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/model) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/models/discover) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/models) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/new) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/providers/oauth) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/providers) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/providers) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(DELETE /api/chat/providers) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/question) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/resources) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/resume) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/session) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat/session) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(PUT /api/chat/session) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(PATCH /api/chat/session) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(DELETE /api/chat/sessions) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/sessions) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(PATCH /api/chat/sessions) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/chat/settings) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(PATCH /api/chat/settings) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/chat) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/health) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/projects/browse) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/projects/fork) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(DELETE /api/projects) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/projects) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(PATCH /api/projects) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/projects) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/workspace/browse) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/workspace/file) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(POST /api/workspace/root) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "classifyRequest(GET /api/workspace/tree) returns a route class",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "unclassified route fails closed with 404 NOT_FOUND",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: DELETE /api/chat/providers without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: DELETE /api/chat/providers admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: DELETE /api/chat/sessions without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: DELETE /api/chat/sessions admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: DELETE /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: DELETE /api/projects admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/commands without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/commands admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/events without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/events admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/models without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/models admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/providers without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/providers admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/resources without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/resources admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/sessions without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/sessions admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/settings without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/chat/settings admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/health without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/health admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/projects admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/projects/browse without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/projects/browse admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/workspace/browse without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/workspace/browse admitted with grant (got 410)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/workspace/file without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/workspace/file admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/workspace/tree without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: GET /api/workspace/tree admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/chat/sessions without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/chat/sessions admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/chat/settings without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/chat/settings admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PATCH /api/projects admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/abort without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/abort admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/command without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/command admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/model without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/model admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/models/discover without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/models/discover admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/new without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/new admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/providers without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/providers admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/providers/oauth without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/providers/oauth admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/question without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/question admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/resume without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/resume admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/projects admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/projects/fork without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/projects/fork admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/workspace/root without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: POST /api/workspace/root admitted with grant (got 405)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PUT /api/chat/artifacts without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PUT /api/chat/artifacts admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PUT /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: PUT /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: same-origin bootstrap without grant -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: unsolicited cross-origin bootstrap -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: unknown route -> 404 (got 404)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: unknown method on known route -> 404/405 (got 405)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: top-level HTML loads without credentials",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: HTML carries frame-ancestors 'none' (observed \"frame-ancestors 'none'\")",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: DELETE /api/chat/providers without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: DELETE /api/chat/providers admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: DELETE /api/chat/sessions without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: DELETE /api/chat/sessions admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: DELETE /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: DELETE /api/projects admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/commands without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/commands admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/events without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/events admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/models without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/models admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/providers without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/providers admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/resources without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/resources admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/sessions without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/sessions admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/settings without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/chat/settings admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/health without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/health admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/projects admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/projects/browse without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/projects/browse admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/workspace/browse without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/workspace/browse admitted with grant (got 410)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/workspace/file without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/workspace/file admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/workspace/tree without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: GET /api/workspace/tree admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/chat/sessions without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/chat/sessions admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/chat/settings without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/chat/settings admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PATCH /api/projects admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/abort without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/abort admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/command without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/command admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/model without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/model admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/models/discover without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/models/discover admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/new without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/new admitted with grant (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/providers without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/providers admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/providers/oauth without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/providers/oauth admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/question without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/question admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/resume without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/resume admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/projects without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/projects admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/projects/fork without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/projects/fork admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/workspace/root without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: POST /api/workspace/root admitted with grant (got 405)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PUT /api/chat/artifacts without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PUT /api/chat/artifacts admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PUT /api/chat/session without grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: PUT /api/chat/session admitted with grant (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: same-origin bootstrap without grant -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: unsolicited cross-origin bootstrap -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: unknown route -> 404 (got 404)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: unknown method on known route -> 404/405 (got 405)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: top-level HTML loads without credentials",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: HTML carries frame-ancestors 'none' (observed \"frame-ancestors 'none'\")",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-06( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "chromium",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-06.json"
+	],
+	"timestamp": "2026-09-26T05:14:59.060Z"
+}

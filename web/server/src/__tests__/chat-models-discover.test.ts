@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { upsertCustomProvider } from "../custom-provider-store";
+import { testRequest } from "./test-request";
 
 const mocks = vi.hoisted(() => ({
 	config: {
@@ -61,7 +62,7 @@ describe("chat model discovery", () => {
 		});
 
 		const response = await handleChatModelsDiscoverPost(
-			new Request("http://localhost/api/chat/models/discover", {
+			testRequest("http://localhost:3000/api/chat/models/discover", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({ providerId: "custom+lab" }),
@@ -92,7 +93,7 @@ describe("chat model discovery", () => {
 		});
 
 		const response = await handleChatModelsDiscoverPost(
-			new Request("http://localhost/api/chat/models/discover", {
+			testRequest("http://localhost:3000/api/chat/models/discover", {
 				method: "POST",
 				headers: { "content-type": "application/json" },
 				body: JSON.stringify({ providerId: "custom+google" }),

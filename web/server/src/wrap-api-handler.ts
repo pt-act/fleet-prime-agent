@@ -1,4 +1,9 @@
-import { type FleetErrorEnvelope, NETWORK_DISCONNECTED_MESSAGE } from "@prime-agent/web-protocol/chat-protocol";
+import { randomUUID } from "node:crypto";
+import type { FleetErrorEnvelope } from "@prime-agent/web-protocol/chat-protocol";
+import { NETWORK_DISCONNECTED_MESSAGE } from "@prime-agent/web-protocol/chat-protocol";
+import type { RequestPolicyErrorField } from "@prime-agent/web-protocol/request-policy";
+import { ZodError } from "zod/v4";
+import { admitRequest } from "./request-policy";
 
 function getResponseStatus(error: unknown): number {
 	if (error && typeof error === "object" && "status" in error) {
@@ -51,13 +56,74 @@ export function chatErrorEnvelope(error: unknown): FleetErrorEnvelope {
 	return { code: "UNKNOWN_ERROR", message: safeErrorMessage(error) };
 }
 
-export function wrapApiHandler(handler: () => Promise<Response>): Promise<Response> {
-	return handler().catch((error) => {
-		const envelope = chatErrorEnvelope(error);
-		if (envelope.code === "NETWORK_DISCONNECTED") {
+/** Request-boundary envelope: no submitted values, stack traces or paths. */
+function requestPolicyError(
+	status: number,
+	code: "INVALID_REQUEST" | "INTERNAL_ERROR",
+	message: string,
+	fields?: RequestPolicyErrorField[],
+): Response {
+	return Response.json(
+		{ error: { code, message, retryable: code === "INTERNAL_ERROR", requestId: randomUUID(), fields } },
+		{ status, headers: { "cache-control": "no-store" } },
+	);
+}
+
+function zodFieldIssues(error: ZodError): RequestPolicyErrorField[] {
+	return error.issues.map((issue) => ({
+		path: issue.path.map((segment) => String(segment)).join("."),
+		code: String(issue.code ?? "invalid"),
+	}));
+}
+
+/**
+ * Fail closed when a mounted API route receives a method it does not
+ * implement (request-boundary spec RB-06). Without an explicit catch-all the
+ * framework falls through to the SPA shell with 200, which is not a safe
+ * answer at the API boundary. Wired as the `ANY` handler on every API route.
+ */
+export function methodNotAllowed(): Response {
+	return Response.json(
+		{
+			error: {
+				code: "METHOD_NOT_ALLOWED",
+				message: "Method not allowed",
+				retryable: false,
+				requestId: randomUUID(),
+			},
+		},
+		{ status: 405, headers: { "cache-control": "no-store" } },
+	);
+}
+
+/**
+ * Admits the request through the request-boundary policy, then runs the
+ * handler. Admission happens before any body parsing or side effect; schema
+ * and framing failures map to 400/415/413/500 envelopes that never echo
+ * submitted values.
+ */
+export function wrapApiHandler(request: Request, handler: () => Promise<Response>): Promise<Response> {
+	const admission = admitRequest(request);
+	if (!admission.ok) return Promise.resolve(admission.response);
+	return handler().catch((error: unknown) => {
+		if (error instanceof ZodError) {
+			return requestPolicyError(400, "INVALID_REQUEST", "Request failed schema validation", zodFieldIssues(error));
+		}
+		if (error instanceof SyntaxError) {
+			return requestPolicyError(400, "INVALID_REQUEST", "Malformed JSON body");
+		}
+		if (isDaemonDisconnectError(error)) {
 			// Raw transport detail stays server-side.
 			process.stderr.write(`[api] daemon transport failure: ${getErrorMessage(error)}\n`);
+			return Response.json(chatErrorEnvelope(error), { status: getResponseStatus(error) });
 		}
-		return Response.json(envelope, { status: getResponseStatus(error) });
+		const status = getResponseStatus(error);
+		if (status !== 500) {
+			// Handler-declared status: legacy flat envelope, scrubbed message.
+			return Response.json(chatErrorEnvelope(error), { status });
+		}
+		const requestId = randomUUID();
+		process.stderr.write(`[api] internal error (${requestId}): ${getErrorMessage(error)}\n`);
+		return requestPolicyError(500, "INTERNAL_ERROR", "Internal server error");
 	});
 }

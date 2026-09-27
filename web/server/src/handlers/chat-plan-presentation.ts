@@ -4,7 +4,7 @@ import { getBridge } from "../singleton";
 import { wrapApiHandler } from "../wrap-api-handler";
 
 export function handleChatPlanPresentationPut(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const body = ChatPlanPresentationUpsertRequestSchema.parse(await request.json().catch(() => ({})));
 		const bridge = getBridge();
 		const session = bridge.getSession(body.sessionId) ?? (await bridge.resumeSessionById(body.sessionId));

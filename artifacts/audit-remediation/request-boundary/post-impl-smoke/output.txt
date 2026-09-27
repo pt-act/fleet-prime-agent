@@ -1,0 +1,36 @@
+--- 1. bootstrap (no Origin, loopback Host) ---
+status=200
+grant obtained: yes
+--- 2. cross-port origin POST (F07 fixed?) ---
+status=403
+{"error":{"code":"ORIGIN_DENIED","message":"Same-origin loopback requests only","retryable":false,"requestId":"dev-boundary"}}
+--- 3. non-loopback origin POST (dev gate) ---
+status=403
+{"error":{"code":"ORIGIN_DENIED","message":"Same-origin loopback requests only","retryable":false,"requestId":"dev-boundary"}}
+--- 4. grant but NO protocol header on mutation ---
+status=426
+{"error":{"code":"CONTRACT_UPGRADE_REQUIRED","message":"This client is out of date; reload to upgrade the protocol","retryable":false,"requestId":"2edec2df-61cf-4f2d-b0ef-ae1dd198331d"}}
+--- 5. grant + protocol: admitted ---
+status=200
+{"session":{"sessionId":"01a089a2-46f3-700f-9877-e4eb16770eba","projectId":"63d3ca9c-e9b2-4eb2-a312-a4c75f9a360c"},"mess
+--- 6. no grant on read ---
+status=401
+{"error":{"code":"AUTH_REQUIRED","message":"Admission grant missing or expired; re-bootstrap and retry","retryable":true,"requestId":"2e92604c-5f6b-4883-9a80-20de99ce6f1e"}}
+--- 7. grant on read: admitted ---
+status=200
+{"sessions":[{"sessionId":"01a089a2-46f3-700f-9877-e4eb16770eba","projectId":"63
+--- 8. invalid sessionId (F26 fixed?) ---
+status=400
+{"error":{"code":"INVALID_REQUEST","message":"Request failed schema validation","retryable":false,"requestId":"b2405a2a-bf8c-46b0-8f27-d60e227c25bb","fields":[{"path":"","code":"invalid_format"}]}}
+--- 9. text/plain mutation (415?) ---
+status=415
+{"error":{"code":"UNSUPPORTED_MEDIA_TYPE","message":"Unsupported media type","retryable":false,"requestId":"94d50c0a-8cff-40fd-8a30-a4b31233d43a"}}
+--- 10. grant replay with wrong value (401?) ---
+status=401
+{"error":{"code":"AUTH_REQUIRED","message":"Admission grant missing or expired; re-bootstrap and retry","retryable":true,"requestId":"249da0d2-2c1b-4e8f-ba7c-84893d7b9de2"}}
+smoke done
+=== post-implementation smoke (dev path) 2026-09-10T04:45:09Z ===
+29de85bd chore(release): version @qredence/fleet 0.5.7
+ M scripts/prime-agent-web-launcher.mjs
+ M web/app/src/lib/pi/chat-fetch.ts
+ M web/app/src/routeTree.gen.ts

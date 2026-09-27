@@ -1,4 +1,4 @@
-const RUNTIME_API_PREFIXES = ["/api/health", "/api/chat", "/api/projects", "/api/workspace"] as const;
+const RUNTIME_API_PREFIXES = ["/api/bootstrap", "/api/health", "/api/chat", "/api/projects", "/api/workspace"] as const;
 
 export function resolveChatRuntimeBaseUrl() {
 	const fromVite = import.meta.env.VITE_FLEET_PI_CHAT_RUNTIME_URL;

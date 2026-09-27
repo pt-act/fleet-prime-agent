@@ -1,4 +1,5 @@
 import type { PrimeAgentSessionPresentation } from "@prime-agent/web-protocol/chat-protocol";
+import { type FetchEventMessage, setEventStreamConstructorForTests } from "./chat-fetch";
 import { act, renderHook } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { ChatClient } from "./chat-client";
@@ -16,6 +17,7 @@ describe("usePiChatSessionEvents", () => {
 	afterEach(() => {
 		vi.useRealTimers();
 		vi.unstubAllGlobals();
+	setEventStreamConstructorForTests(null);
 	});
 
 	it("ignores an agent-settled hydration that resolves after the visible session changes", async () => {
@@ -32,12 +34,12 @@ describe("usePiChatSessionEvents", () => {
 			static instances: EventSourceStub[] = [];
 			readonly close = vi.fn();
 			onerror: (() => void) | null = null;
-			onmessage: ((event: MessageEvent<string>) => void) | null = null;
+			onmessage: ((event: FetchEventMessage) => void) | null = null;
 			constructor() {
 				EventSourceStub.instances.push(this);
 			}
 		}
-		vi.stubGlobal("EventSource", EventSourceStub);
+		setEventStreamConstructorForTests(EventSourceStub);
 
 		const sessionMetadataRef = { current: { sessionId: "session-a" } };
 		const setMessagesSynced = vi.fn();
@@ -91,12 +93,12 @@ describe("usePiChatSessionEvents", () => {
 			static instances: EventSourceStub[] = [];
 			readonly close = vi.fn();
 			onerror: (() => void) | null = null;
-			onmessage: ((event: MessageEvent<string>) => void) | null = null;
+			onmessage: ((event: FetchEventMessage) => void) | null = null;
 			constructor() {
 				EventSourceStub.instances.push(this);
 			}
 		}
-		vi.stubGlobal("EventSource", EventSourceStub);
+		setEventStreamConstructorForTests(EventSourceStub);
 
 		const setMessagesSynced = vi.fn();
 		const setPresentationSynced = vi.fn();
@@ -142,12 +144,12 @@ describe("usePiChatSessionEvents", () => {
 			static instances: EventSourceStub[] = [];
 			readonly close = vi.fn();
 			onerror: (() => void) | null = null;
-			onmessage: ((event: MessageEvent<string>) => void) | null = null;
+			onmessage: ((event: FetchEventMessage) => void) | null = null;
 			constructor() {
 				EventSourceStub.instances.push(this);
 			}
 		}
-		vi.stubGlobal("EventSource", EventSourceStub);
+		setEventStreamConstructorForTests(EventSourceStub);
 
 		const setActivityLabelSynced = vi.fn();
 		const { rerender } = renderHook(
@@ -188,12 +190,12 @@ describe("usePiChatSessionEvents", () => {
 			static instances: EventSourceStub[] = [];
 			readonly close = vi.fn();
 			onerror: (() => void) | null = null;
-			onmessage: ((event: MessageEvent<string>) => void) | null = null;
+			onmessage: ((event: FetchEventMessage) => void) | null = null;
 			constructor() {
 				EventSourceStub.instances.push(this);
 			}
 		}
-		vi.stubGlobal("EventSource", EventSourceStub);
+		setEventStreamConstructorForTests(EventSourceStub);
 		const setActivityLabelSynced = vi.fn();
 		renderHook(() =>
 			usePiChatSessionEvents({

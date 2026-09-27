@@ -1,0 +1,219 @@
+{
+	"caseId": "RB-04",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "dev: text/plain mutation -> 415 (got 415)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: 415 carries UNSUPPORTED_MEDIA_TYPE",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: 415 echoes no submitted content",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: malformed JSON -> 400 (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: malformed JSON maps to INVALID_REQUEST",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: 400 echoes no submitted content",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: /api/chat/new malformed body -> lenient 200 or strict 400 (observed 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: schema failure -> 400 (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: schema failure maps to INVALID_REQUEST",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: schema failure carries path/code fields",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: schema failure never echoes submitted values",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: unexpected failure -> 500 (got 500)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: unexpected failure -> INTERNAL_ERROR",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: generic message, no detail",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: requestId present",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: no filesystem paths echoed",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: unknown session -> handled 404/400 (got 404)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: runtime failure envelope carries no socket/log paths",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: daemon transport failure maps to NETWORK_DISCONNECTED (got NETWORK_DISCONNECTED)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: transport failure message is scrubbed of socket/log paths",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: text/plain mutation -> 415 (got 415)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: 415 carries UNSUPPORTED_MEDIA_TYPE",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: 415 echoes no submitted content",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: malformed JSON -> 400 (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: malformed JSON maps to INVALID_REQUEST",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: 400 echoes no submitted content",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: /api/chat/new malformed body -> lenient 200 or strict 400 (observed 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: schema failure -> 400 (got 400)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: schema failure maps to INVALID_REQUEST",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: schema failure carries path/code fields",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: schema failure never echoes submitted values",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: unexpected failure -> 500 (got 500)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: unexpected failure -> INTERNAL_ERROR",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: generic message, no detail",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: requestId present",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: no filesystem paths echoed",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: unknown session -> handled 404/400 (got 404)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: runtime failure envelope carries no socket/log paths",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: daemon transport failure maps to NETWORK_DISCONNECTED (got NETWORK_DISCONNECTED)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: transport failure message is scrubbed of socket/log paths",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-04( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "chromium",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-04.json"
+	],
+	"timestamp": "2026-09-26T05:14:43.026Z"
+}

@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { handleChatQueueMutationPost } from "../handlers/chat-queue";
 import type { PrimeBridge } from "../prime-bridge";
 import { resetBridgeForTests, setBridgeForTests } from "../singleton";
+import { testRequest } from "./test-request";
 
 afterEach(() => {
 	resetBridgeForTests();
@@ -16,7 +17,7 @@ describe("handleChatQueueMutationPost", () => {
 		setBridgeForTests({ deleteQueuedMessage, resetForTests: vi.fn() } as unknown as PrimeBridge);
 
 		const response = await handleChatQueueMutationPost(
-			new Request("http://localhost/api/chat/session", {
+			testRequest("http://localhost:3000/api/chat/session", {
 				method: "PATCH",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({

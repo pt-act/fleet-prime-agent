@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiBootstrapRouteImport } from './routes/api/bootstrap'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ApiHealthRouteImport } from './routes/api/health'
 import { Route as ApiProjectsRouteImport } from './routes/api/projects'
@@ -40,6 +41,11 @@ import { Route as ApiChatProvidersOauthRouteImport } from './routes/api/chat/pro
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBootstrapRoute = ApiBootstrapRouteImport.update({
+  id: '/api/bootstrap',
+  path: '/api/bootstrap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -175,6 +181,7 @@ const ApiChatProvidersOauthRoute = ApiChatProvidersOauthRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/bootstrap': typeof ApiBootstrapRoute
   '/api/chat': typeof ApiChatRouteWithChildren
   '/api/health': typeof ApiHealthRoute
   '/api/projects': typeof ApiProjectsRouteWithChildren
@@ -204,6 +211,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/bootstrap': typeof ApiBootstrapRoute
   '/api/chat': typeof ApiChatRouteWithChildren
   '/api/health': typeof ApiHealthRoute
   '/api/projects': typeof ApiProjectsRouteWithChildren
@@ -234,6 +242,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/bootstrap': typeof ApiBootstrapRoute
   '/api/chat': typeof ApiChatRouteWithChildren
   '/api/health': typeof ApiHealthRoute
   '/api/projects': typeof ApiProjectsRouteWithChildren
@@ -265,6 +274,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/api/bootstrap'
     | '/api/chat'
     | '/api/health'
     | '/api/projects'
@@ -294,6 +304,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/api/bootstrap'
     | '/api/chat'
     | '/api/health'
     | '/api/projects'
@@ -323,6 +334,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/api/bootstrap'
     | '/api/chat'
     | '/api/health'
     | '/api/projects'
@@ -353,6 +365,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiBootstrapRoute: typeof ApiBootstrapRoute
   ApiChatRoute: typeof ApiChatRouteWithChildren
   ApiHealthRoute: typeof ApiHealthRoute
   ApiProjectsRoute: typeof ApiProjectsRouteWithChildren
@@ -369,6 +382,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/bootstrap': {
+      id: '/api/bootstrap'
+      path: '/api/bootstrap'
+      fullPath: '/api/bootstrap'
+      preLoaderRoute: typeof ApiBootstrapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -634,6 +654,7 @@ const ApiProjectsRouteWithChildren = ApiProjectsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiBootstrapRoute: ApiBootstrapRoute,
   ApiChatRoute: ApiChatRouteWithChildren,
   ApiHealthRoute: ApiHealthRoute,
   ApiProjectsRoute: ApiProjectsRouteWithChildren,

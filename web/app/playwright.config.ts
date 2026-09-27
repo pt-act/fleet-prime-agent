@@ -35,6 +35,19 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
+    // The request-boundary audit spec requires chromium/firefox/webkit
+    // coverage. Extra engines are opt-in (FLEET_AUDIT_BROWSERS=1) so the
+    // everyday smoke run stays single-engine; audit invocations set the flag
+    // and select a project explicitly.
+    ...(process.env.FLEET_AUDIT_BROWSERS === "1"
+      ? [
+          // Non-chromium engines (webkit especially) can exceed the 30s
+          // default during page setup under the audit's scrubbed fixtures,
+          // before a test body's own setTimeout takes effect.
+          { name: "firefox", use: { ...devices["Desktop Firefox"] }, timeout: 120_000 },
+          { name: "webkit", use: { ...devices["Desktop Safari"] }, timeout: 120_000 },
+        ]
+      : []),
   ],
   webServer,
 })
