@@ -209,11 +209,11 @@
 	"environment": {
 		"platform": "darwin x64",
 		"node": "v24.1.0",
-		"project": "firefox",
+		"project": "webkit",
 		"launchPaths": "dev+launcher"
 	},
 	"evidencePaths": [
-		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-04.json"
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-04.json"
 	],
-	"timestamp": "2026-09-27T10:12:13.487Z"
+	"timestamp": "2026-09-27T10:14:49.467Z"
 }

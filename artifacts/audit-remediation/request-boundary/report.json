@@ -1,7 +1,7 @@
 {
 	"specId": "request-boundary",
-	"generatedAt": "2026-09-27T07:36:08.044Z",
-	"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+	"generatedAt": "2026-09-27T10:14:57.765Z",
+	"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 	"contractFingerprint": {
 		"declared": "e440435d7fed126e37734afa40a17c0f4585633a9dd61369f903e575c71d0d9f",
 		"recomputed": "e440435d7fed126e37734afa40a17c0f4585633a9dd61369f903e575c71d0d9f"
@@ -285,7 +285,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-01( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -295,7 +295,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-01.json"
 			],
-			"timestamp": "2026-09-26T05:13:45.537Z"
+			"timestamp": "2026-09-27T10:13:09.410Z"
 		},
 		{
 			"caseId": "RB-02",
@@ -358,7 +358,7 @@
 				},
 				{
 					"observed": "true",
-					"expected": "multiple API calls observed (observed 18)",
+					"expected": "multiple API calls observed (observed 19)",
 					"pass": true
 				},
 				{
@@ -414,7 +414,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-02( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -424,7 +424,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-02.json"
 			],
-			"timestamp": "2026-09-26T05:14:33.298Z"
+			"timestamp": "2026-09-27T10:13:29.622Z"
 		},
 		{
 			"caseId": "RB-03",
@@ -503,7 +503,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-03( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -513,7 +513,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-03.json"
 			],
-			"timestamp": "2026-09-26T05:14:35.723Z"
+			"timestamp": "2026-09-27T10:13:31.257Z"
 		},
 		{
 			"caseId": "RB-04",
@@ -722,7 +722,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-04( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -732,7 +732,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-04.json"
 			],
-			"timestamp": "2026-09-26T05:14:43.026Z"
+			"timestamp": "2026-09-27T10:13:33.054Z"
 		},
 		{
 			"caseId": "RB-05",
@@ -745,102 +745,102 @@
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/providers carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/providers carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/providers carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/providers carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/projects carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/projects carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/projects carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/projects carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/models carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/models carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/models carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/models carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/resources carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/resources carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/resources carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/resources carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/commands carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/commands carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/commands carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/commands carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/settings carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/settings carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/settings carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/settings carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/workspace/tree carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/workspace/tree carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/workspace/tree carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/workspace/tree carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/sessions carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/sessions carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/sessions carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/sessions carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/sessions carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/sessions carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/sessions carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/sessions carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/session?sessionId=01a0dc23-0b32-764d-b6e7-6bad140859d7&projectId=6d93c55f-8474-40d9-b8e1-eeb4ae4a55a4&openUI=true carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:61241/api/chat/session?sessionId=01a0e25b-086b-76cd-94e4-7610d00c0a17&projectId=22dbdd09-4572-49f7-bbde-501a0715dfad&openUI=true carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:58791/api/chat/session?sessionId=01a0dc23-0b32-764d-b6e7-6bad140859d7&projectId=6d93c55f-8474-40d9-b8e1-eeb4ae4a55a4&openUI=true carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:61241/api/chat/session?sessionId=01a0e25b-086b-76cd-94e4-7610d00c0a17&projectId=22dbdd09-4572-49f7-bbde-501a0715dfad&openUI=true carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
@@ -856,7 +856,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-05( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -866,7 +866,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-05.json"
 			],
-			"timestamp": "2026-09-26T05:14:50.379Z"
+			"timestamp": "2026-09-27T10:13:37.504Z"
 		},
 		{
 			"caseId": "RB-06",
@@ -2255,7 +2255,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-06( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -2265,7 +2265,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-06.json"
 			],
-			"timestamp": "2026-09-26T05:14:59.060Z"
+			"timestamp": "2026-09-27T10:13:40.085Z"
 		},
 		{
 			"caseId": "RB-EVIDENCE",
@@ -2908,6 +2908,216 @@
 				},
 				{
 					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-02.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-03.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-04.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-05.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-06.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-PBT.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
 					"expected": "chromium: case record present for RB-01",
 					"pass": true
 				},
@@ -2964,7 +3174,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-EVIDENCE( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -2975,7 +3185,7 @@
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-EVIDENCE.json",
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/report.json"
 			],
-			"timestamp": "2026-09-26T05:15:01.645Z"
+			"timestamp": "2026-09-27T10:13:41.872Z"
 		},
 		{
 			"caseId": "RB-PBT",
@@ -3018,7 +3228,7 @@
 				},
 				{
 					"observed": "true",
-					"expected": "live 200 agrees with model ok for origin http://127.0.0.1:58791",
+					"expected": "live 200 agrees with model ok for origin http://127.0.0.1:61241",
 					"pass": true
 				},
 				{
@@ -3069,7 +3279,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-PBT( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -3079,7 +3289,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/chromium/RB-PBT.json"
 			],
-			"timestamp": "2026-09-26T05:15:01.555Z"
+			"timestamp": "2026-09-27T10:13:41.809Z"
 		},
 		{
 			"caseId": "RB-01",
@@ -3358,7 +3568,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-01( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -3368,7 +3578,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-01.json"
 			],
-			"timestamp": "2026-09-27T07:33:35.677Z"
+			"timestamp": "2026-09-27T10:10:49.642Z"
 		},
 		{
 			"caseId": "RB-02",
@@ -3431,7 +3641,7 @@
 				},
 				{
 					"observed": "true",
-					"expected": "multiple API calls observed (observed 17)",
+					"expected": "multiple API calls observed (observed 16)",
 					"pass": true
 				},
 				{
@@ -3487,7 +3697,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-02( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -3497,7 +3707,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-02.json"
 			],
-			"timestamp": "2026-09-27T07:35:10.495Z"
+			"timestamp": "2026-09-27T10:11:52.403Z"
 		},
 		{
 			"caseId": "RB-03",
@@ -3576,7 +3786,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-03( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -3586,7 +3796,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-03.json"
 			],
-			"timestamp": "2026-09-27T07:35:27.482Z"
+			"timestamp": "2026-09-27T10:12:04.858Z"
 		},
 		{
 			"caseId": "RB-04",
@@ -3795,7 +4005,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-04( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -3805,7 +4015,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-04.json"
 			],
-			"timestamp": "2026-09-27T07:35:40.346Z"
+			"timestamp": "2026-09-27T10:12:13.487Z"
 		},
 		{
 			"caseId": "RB-05",
@@ -3813,157 +4023,107 @@
 			"assertions": [
 				{
 					"observed": "true",
-					"expected": "app-driven API requests observed (15)",
+					"expected": "app-driven API requests observed (10)",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/providers carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/providers carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/providers carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/providers carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/projects carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/projects carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/projects carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/projects carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/models carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/models carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/models carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/models carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/resources carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/resources carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/resources carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/resources carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/commands carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/commands carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/commands carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/commands carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/settings carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/settings carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/settings carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/settings carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/workspace/tree carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/workspace/tree carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/workspace/tree carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/workspace/tree carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/sessions carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/sessions carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/sessions carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/sessions carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/models?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries the Bearer grant",
+					"expected": "app request http://127.0.0.1:59867/api/chat/session?sessionId=01a0e259-c4cb-735f-8742-a682a21753d6&projectId=a0937e1b-8eac-4d65-88a2-2483e9a4500a&openUI=true carries the Bearer grant",
 					"pass": true
 				},
 				{
 					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/models?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries X-Fleet-Protocol: 2",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/resources?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries the Bearer grant",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/resources?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries X-Fleet-Protocol: 2",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/commands?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries the Bearer grant",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/commands?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries X-Fleet-Protocol: 2",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/settings?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries the Bearer grant",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/settings?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries X-Fleet-Protocol: 2",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/workspace/tree?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries the Bearer grant",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/workspace/tree?projectId=d59e9a00-ef30-4a9d-8e3e-5437aceabd7e carries X-Fleet-Protocol: 2",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/sessions carries the Bearer grant",
-					"pass": true
-				},
-				{
-					"observed": "true",
-					"expected": "app request http://127.0.0.1:50487/api/chat/sessions carries X-Fleet-Protocol: 2",
+					"expected": "app request http://127.0.0.1:59867/api/chat/session?sessionId=01a0e259-c4cb-735f-8742-a682a21753d6&projectId=a0937e1b-8eac-4d65-88a2-2483e9a4500a&openUI=true carries X-Fleet-Protocol: 2",
 					"pass": true
 				},
 				{
@@ -3979,7 +4139,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-05( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -3989,7 +4149,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-05.json"
 			],
-			"timestamp": "2026-09-27T07:35:57.781Z"
+			"timestamp": "2026-09-27T10:12:25.719Z"
 		},
 		{
 			"caseId": "RB-06",
@@ -5378,7 +5538,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-06( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -5388,7 +5548,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-06.json"
 			],
-			"timestamp": "2026-09-27T07:36:04.576Z"
+			"timestamp": "2026-09-27T10:12:28.927Z"
 		},
 		{
 			"caseId": "RB-EVIDENCE",
@@ -5996,6 +6156,216 @@
 				},
 				{
 					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-02.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-02.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-03.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-03.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-04.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-04.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-05.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-05.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-06.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-06.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: caseId matches",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: verdict pass",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: nonempty assertions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: exitCode 0",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: sourceCommit matches HEAD",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: command recorded",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "cases/darwin-x64/webkit/RB-PBT.json: evidence file exists (/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-PBT.json)",
+					"pass": true
+				},
+				{
+					"observed": "true",
 					"expected": "firefox: case record present for RB-01",
 					"pass": true
 				},
@@ -6052,7 +6422,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-EVIDENCE( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -6063,7 +6433,7 @@
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-EVIDENCE.json",
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/report.json"
 			],
-			"timestamp": "2026-09-24T14:59:05.879Z"
+			"timestamp": "2026-09-27T10:12:31.257Z"
 		},
 		{
 			"caseId": "RB-PBT",
@@ -6106,7 +6476,7 @@
 				},
 				{
 					"observed": "true",
-					"expected": "live 200 agrees with model ok for origin http://127.0.0.1:50487",
+					"expected": "live 200 agrees with model ok for origin http://127.0.0.1:59867",
 					"pass": true
 				},
 				{
@@ -6157,7 +6527,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-PBT( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -6167,7 +6537,7 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-PBT.json"
 			],
-			"timestamp": "2026-09-27T07:36:07.837Z"
+			"timestamp": "2026-09-27T10:12:31.171Z"
 		},
 		{
 			"caseId": "RB-01",
@@ -6446,7 +6816,7 @@
 			],
 			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-01( |$)\"",
 			"exitCode": 0,
-			"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 			"environment": {
 				"platform": "darwin x64",
 				"node": "v24.1.0",
@@ -6456,7 +6826,2081 @@
 			"evidencePaths": [
 				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-01.json"
 			],
-			"timestamp": "2026-09-27T07:22:21.404Z"
+			"timestamp": "2026-09-27T10:14:22.571Z"
+		},
+		{
+			"caseId": "RB-02",
+			"verdict": "pass",
+			"assertions": [
+				{
+					"observed": "true",
+					"expected": "dev: re-bootstrap mints a distinct grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: replayed superseded grant -> 401 AUTH_REQUIRED (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: current grant admitted -> 200 (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: fresh short-TTL grant admitted -> 200 (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: expired grant replay -> 401 AUTH_REQUIRED (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: re-bootstrap mints a distinct grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: replayed superseded grant -> 401 AUTH_REQUIRED (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: current grant admitted -> 200 (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: fresh short-TTL grant admitted -> 200 (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: expired grant replay -> 401 AUTH_REQUIRED (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "exactly one bootstrap request (observed 1)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "multiple API calls observed (observed 19)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: browser cross-port origin POST blocked or 403 (observed {\"status\":403})",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: cross-port Origin -> 403 at the boundary (got 403)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: non-loopback Origin -> 403 (got 403)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: cross-origin attempts changed no server state",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: browser cross-port origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: cross-port Origin -> 403 at the boundary (got 403)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: non-loopback Origin -> 403 (got 403)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: cross-origin attempts changed no server state",
+					"pass": true
+				}
+			],
+			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-02( |$)\"",
+			"exitCode": 0,
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+			"environment": {
+				"platform": "darwin x64",
+				"node": "v24.1.0",
+				"project": "webkit",
+				"launchPaths": "dev+launcher"
+			},
+			"evidencePaths": [
+				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-02.json"
+			],
+			"timestamp": "2026-09-27T10:14:45.724Z"
+		},
+		{
+			"caseId": "RB-03",
+			"verdict": "pass",
+			"assertions": [
+				{
+					"observed": "true",
+					"expected": "captured a real grant value from the bootstrap response",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "bootstrap is no-store (observed \"no-store\")",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "bootstrap sets no CORS header",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "wrong grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "401 body does not contain the real grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "grant absent from page URL",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "grant absent from every request URL",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "grant absent from local/session storage",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "grant absent from browser console",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "no cookies at all (observed [])",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "no set-cookie headers observed on any response",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "grant absent from server stdout",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "grant absent from server stderr",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "unrelated local-port server received 0 requests",
+					"pass": true
+				}
+			],
+			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-03( |$)\"",
+			"exitCode": 0,
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+			"environment": {
+				"platform": "darwin x64",
+				"node": "v24.1.0",
+				"project": "webkit",
+				"launchPaths": "dev+launcher"
+			},
+			"evidencePaths": [
+				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-03.json"
+			],
+			"timestamp": "2026-09-27T10:14:47.588Z"
+		},
+		{
+			"caseId": "RB-04",
+			"verdict": "pass",
+			"assertions": [
+				{
+					"observed": "true",
+					"expected": "dev: text/plain mutation -> 415 (got 415)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: 415 carries UNSUPPORTED_MEDIA_TYPE",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: 415 echoes no submitted content",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: malformed JSON -> 400 (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: malformed JSON maps to INVALID_REQUEST",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: 400 echoes no submitted content",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: /api/chat/new malformed body -> lenient 200 or strict 400 (observed 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: schema failure -> 400 (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: schema failure maps to INVALID_REQUEST",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: schema failure carries path/code fields",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: schema failure never echoes submitted values",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: unexpected failure -> 500 (got 500)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: unexpected failure -> INTERNAL_ERROR",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: generic message, no detail",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: requestId present",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: no filesystem paths echoed",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: unknown session -> handled 404/400 (got 404)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: runtime failure envelope carries no socket/log paths",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: daemon transport failure maps to NETWORK_DISCONNECTED (got NETWORK_DISCONNECTED)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: transport failure message is scrubbed of socket/log paths",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: text/plain mutation -> 415 (got 415)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: 415 carries UNSUPPORTED_MEDIA_TYPE",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: 415 echoes no submitted content",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: malformed JSON -> 400 (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: malformed JSON maps to INVALID_REQUEST",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: 400 echoes no submitted content",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: /api/chat/new malformed body -> lenient 200 or strict 400 (observed 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: schema failure -> 400 (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: schema failure maps to INVALID_REQUEST",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: schema failure carries path/code fields",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: schema failure never echoes submitted values",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: unexpected failure -> 500 (got 500)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: unexpected failure -> INTERNAL_ERROR",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: generic message, no detail",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: requestId present",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: no filesystem paths echoed",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: unknown session -> handled 404/400 (got 404)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: runtime failure envelope carries no socket/log paths",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: daemon transport failure maps to NETWORK_DISCONNECTED (got NETWORK_DISCONNECTED)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: transport failure message is scrubbed of socket/log paths",
+					"pass": true
+				}
+			],
+			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-04( |$)\"",
+			"exitCode": 0,
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+			"environment": {
+				"platform": "darwin x64",
+				"node": "v24.1.0",
+				"project": "webkit",
+				"launchPaths": "dev+launcher"
+			},
+			"evidencePaths": [
+				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-04.json"
+			],
+			"timestamp": "2026-09-27T10:14:49.467Z"
+		},
+		{
+			"caseId": "RB-05",
+			"verdict": "pass",
+			"assertions": [
+				{
+					"observed": "true",
+					"expected": "app-driven API requests observed (10)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/providers carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/providers carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/projects carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/projects carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/models carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/models carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/resources carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/resources carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/commands carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/commands carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/settings carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/settings carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/workspace/tree carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/workspace/tree carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/sessions carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/sessions carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/sessions carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/sessions carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/session?sessionId=01a0e25c-32e3-71a3-8839-84110fe8dc82&projectId=7478d1f3-328d-417f-adf4-116f38987c32&openUI=true carries the Bearer grant",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "app request http://127.0.0.1:62562/api/chat/session?sessionId=01a0e25c-32e3-71a3-8839-84110fe8dc82&projectId=7478d1f3-328d-417f-adf4-116f38987c32&openUI=true carries X-Fleet-Protocol: 2",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "old tab surfaces an actionable reload notice after the 401/426 denial",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "old-style mutation without grant -> 401 AUTH_REQUIRED (got 401)",
+					"pass": true
+				}
+			],
+			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-05( |$)\"",
+			"exitCode": 0,
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+			"environment": {
+				"platform": "darwin x64",
+				"node": "v24.1.0",
+				"project": "webkit",
+				"launchPaths": "dev+launcher"
+			},
+			"evidencePaths": [
+				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-05.json"
+			],
+			"timestamp": "2026-09-27T10:14:54.161Z"
+		},
+		{
+			"caseId": "RB-06",
+			"verdict": "pass",
+			"assertions": [
+				{
+					"observed": "true",
+					"expected": "route matrix covers all mounted routes (38 entries)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/bootstrap",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/abort",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: PUT /api/chat/artifacts",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/command",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/commands",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/events",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/model",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/models/discover",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/models",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/new",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/providers/oauth",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/providers",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/providers",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: DELETE /api/chat/providers",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/question",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/resources",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/resume",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: PUT /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: PATCH /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: DELETE /api/chat/sessions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/sessions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: PATCH /api/chat/sessions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/chat/settings",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: PATCH /api/chat/settings",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/chat",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/health",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/projects/browse",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/projects/fork",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: DELETE /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: PATCH /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/workspace/browse",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/workspace/file",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: POST /api/workspace/root",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "mounted route classified: GET /api/workspace/tree",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/bootstrap",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/health",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/abort",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: PUT /api/chat/artifacts",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/command",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/commands",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/events",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/model",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/models",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/models/discover",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/new",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/providers",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/providers",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: DELETE /api/chat/providers",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/providers/oauth",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/question",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/resources",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/resume",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: PUT /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: PATCH /api/chat/session",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/sessions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: DELETE /api/chat/sessions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: PATCH /api/chat/sessions",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/chat/settings",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: PATCH /api/chat/settings",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: PATCH /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: DELETE /api/projects",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/projects/browse",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/projects/fork",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/workspace/browse",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/workspace/file",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: POST /api/workspace/root",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classified route mounted: GET /api/workspace/tree",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/bootstrap) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/abort) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(PUT /api/chat/artifacts) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/command) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/commands) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/events) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/model) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/models/discover) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/models) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/new) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/providers/oauth) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/providers) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/providers) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(DELETE /api/chat/providers) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/question) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/resources) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/resume) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/session) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat/session) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(PUT /api/chat/session) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(PATCH /api/chat/session) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(DELETE /api/chat/sessions) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/sessions) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(PATCH /api/chat/sessions) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/chat/settings) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(PATCH /api/chat/settings) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/chat) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/health) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/projects/browse) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/projects/fork) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(DELETE /api/projects) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/projects) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(PATCH /api/projects) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/projects) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/workspace/browse) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/workspace/file) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(POST /api/workspace/root) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "classifyRequest(GET /api/workspace/tree) returns a route class",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "unclassified route fails closed with 404 NOT_FOUND",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: DELETE /api/chat/providers without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: DELETE /api/chat/providers admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: DELETE /api/chat/sessions without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: DELETE /api/chat/sessions admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: DELETE /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: DELETE /api/projects admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/commands without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/commands admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/events without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/events admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/models without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/models admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/providers without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/providers admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/resources without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/resources admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/sessions without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/sessions admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/settings without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/chat/settings admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/health without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/health admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/projects admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/projects/browse without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/projects/browse admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/workspace/browse without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/workspace/browse admitted with grant (got 410)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/workspace/file without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/workspace/file admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/workspace/tree without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: GET /api/workspace/tree admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/chat/sessions without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/chat/sessions admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/chat/settings without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/chat/settings admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PATCH /api/projects admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/abort without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/abort admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/command without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/command admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/model without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/model admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/models/discover without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/models/discover admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/new without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/new admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/providers without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/providers admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/providers/oauth without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/providers/oauth admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/question without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/question admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/resume without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/resume admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/projects admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/projects/fork without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/projects/fork admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/workspace/root without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: POST /api/workspace/root admitted with grant (got 405)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PUT /api/chat/artifacts without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PUT /api/chat/artifacts admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PUT /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: PUT /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: same-origin bootstrap without grant -> 200 (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: unsolicited cross-origin bootstrap -> 403 (got 403)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: unknown route -> 404 (got 404)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: unknown method on known route -> 404/405 (got 405)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: top-level HTML loads without credentials",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "dev: HTML carries frame-ancestors 'none' (observed \"frame-ancestors 'none'\")",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: DELETE /api/chat/providers without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: DELETE /api/chat/providers admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: DELETE /api/chat/sessions without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: DELETE /api/chat/sessions admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: DELETE /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: DELETE /api/projects admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/commands without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/commands admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/events without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/events admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/models without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/models admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/providers without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/providers admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/resources without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/resources admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/sessions without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/sessions admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/settings without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/chat/settings admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/health without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/health admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/projects admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/projects/browse without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/projects/browse admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/workspace/browse without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/workspace/browse admitted with grant (got 410)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/workspace/file without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/workspace/file admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/workspace/tree without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: GET /api/workspace/tree admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/chat/sessions without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/chat/sessions admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/chat/settings without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/chat/settings admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PATCH /api/projects admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/abort without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/abort admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/command without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/command admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/model without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/model admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/models/discover without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/models/discover admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/new without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/new admitted with grant (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/providers without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/providers admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/providers/oauth without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/providers/oauth admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/question without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/question admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/resume without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/resume admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/projects without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/projects admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/projects/fork without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/projects/fork admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/workspace/root without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: POST /api/workspace/root admitted with grant (got 405)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PUT /api/chat/artifacts without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PUT /api/chat/artifacts admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PUT /api/chat/session without grant -> 401 (got 401)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: PUT /api/chat/session admitted with grant (got 400)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: same-origin bootstrap without grant -> 200 (got 200)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: unsolicited cross-origin bootstrap -> 403 (got 403)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: unknown route -> 404 (got 404)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: unknown method on known route -> 404/405 (got 405)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: top-level HTML loads without credentials",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "launcher: HTML carries frame-ancestors 'none' (observed \"frame-ancestors 'none'\")",
+					"pass": true
+				}
+			],
+			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-06( |$)\"",
+			"exitCode": 0,
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+			"environment": {
+				"platform": "darwin x64",
+				"node": "v24.1.0",
+				"project": "webkit",
+				"launchPaths": "dev+launcher"
+			},
+			"evidencePaths": [
+				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-06.json"
+			],
+			"timestamp": "2026-09-27T10:14:56.391Z"
+		},
+		{
+			"caseId": "RB-PBT",
+			"verdict": "pass",
+			"assertions": [
+				{
+					"observed": "true",
+					"expected": "valid class >= 25% (got 328)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "invalid class >= 25% (got 337)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "edge class >= 25% (got 335)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "zero discards: 1000 === 1000 runs",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "handler ran exactly once (got 1)",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "wrapper preserves the payload status",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "wrapper preserves the payload body",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 200 agrees with model ok for origin http://127.0.0.1:62562",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 403 agrees with model ORIGIN_DENIED for origin https://audit.invalid",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://localhost:4999",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 403 agrees with model ORIGIN_DENIED for origin null",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://localhost.evil.com",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://127.0.0.1.evil.com",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://[::1]:4999",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "live 403 agrees with model ORIGIN_DENIED for origin http://127.0.0.1:65535",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "P3 executed 1000 live schema-failure cases",
+					"pass": true
+				},
+				{
+					"observed": "true",
+					"expected": "server logs stay free of submitted secret markers",
+					"pass": true
+				}
+			],
+			"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-PBT( |$)\"",
+			"exitCode": 0,
+			"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+			"environment": {
+				"platform": "darwin x64",
+				"node": "v24.1.0",
+				"project": "webkit",
+				"launchPaths": "dev+launcher"
+			},
+			"evidencePaths": [
+				"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-PBT.json"
+			],
+			"timestamp": "2026-09-27T10:14:57.733Z"
 		}
 	],
 	"propertyTesting": {
@@ -6480,22 +8924,28 @@
 		"pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-EVIDENCE( |$)\""
 	],
 	"evidenceSha256": {
-		"cases/darwin-x64/chromium/RB-01.json": "9dcccd1e9b66b80452c209c58b30abeafebb3cf8e0ffb2b9ded42cedeaebdd4c",
-		"cases/darwin-x64/chromium/RB-02.json": "4d45e3b8e9742ed9d27ab9f0d3b8a02bf2cff9abf79b47b5c18679408a4fa8d3",
-		"cases/darwin-x64/chromium/RB-03.json": "0acc8dc7afd82b1eb5dbf79f283c17b6665800733c4c807c9f49564df385e758",
-		"cases/darwin-x64/chromium/RB-04.json": "655d0067acf1d1f50e0b6b49618e5cee8a7ef98e78683f4477cbc14ace30dab6",
-		"cases/darwin-x64/chromium/RB-05.json": "8777890f4aa284130a570625fb4c98715e131f6eb0a01225f04bddcb80e5b533",
-		"cases/darwin-x64/chromium/RB-06.json": "548692979fc958cb675a365408f8d5341e624440dcac398d6ccd0637bc25daaa",
-		"cases/darwin-x64/chromium/RB-EVIDENCE.json": "608b8313b414d29004bd6147786b93c962e5e6f58931d99e31082d20dce7a388",
-		"cases/darwin-x64/chromium/RB-PBT.json": "b141b0364e32872ff771563f4562be55ed1bcff8c1deb232cfadcd5125c6d303",
-		"cases/darwin-x64/firefox/RB-01.json": "65c86bc4022f7f7381990ef8b34ccbd9d6886f44c3e1954c9df83f583e898dd6",
-		"cases/darwin-x64/firefox/RB-02.json": "1fd9b547200236298ad1d14a78b7717635c3abc6b4db5a6654ec03c72af61a80",
-		"cases/darwin-x64/firefox/RB-03.json": "4725ab7800fa53ebd85d527440879824617942fdd4bac3e39c9ad6845d87a19a",
-		"cases/darwin-x64/firefox/RB-04.json": "1b71415e6bac3faa7d12449cdf238337d9a356c11e2f0d04e63f37a192e614ca",
-		"cases/darwin-x64/firefox/RB-05.json": "6e7664047d24c1dec2be9cb6f970b8566e3c7196096dcc33552dba9e9e90377d",
-		"cases/darwin-x64/firefox/RB-06.json": "4b5c33f2a0394989458081326a2ffb6ad8ea39c83ccee766529eb7c101d12507",
-		"cases/darwin-x64/firefox/RB-EVIDENCE.json": "eba99923c2e520b3c1e145004889c9bf6cb256a89a590546d7391d748be45ff2",
-		"cases/darwin-x64/firefox/RB-PBT.json": "c63895ed5971c8ce4122f0a8665f2f3da319ca1fe900fa2e93659542c1d137c4",
-		"cases/darwin-x64/webkit/RB-01.json": "6375e538ec45bf3a71e02f50e1ee0db1003a1a46ca818d6bff27a90743112d7c"
+		"cases/darwin-x64/chromium/RB-01.json": "2f9046b22e42ebee47b200ecccfea10ce982b4e7cca5e517fd76a314ac751a69",
+		"cases/darwin-x64/chromium/RB-02.json": "3224fbb2b2d7b993aa35d95c4700744adcc97ba0c3c4b85d24a6d8d5fcca3ace",
+		"cases/darwin-x64/chromium/RB-03.json": "361eca39ddb5a410ca77a7d0141e09c25324307174c4bad072ae64dc0e6b66b5",
+		"cases/darwin-x64/chromium/RB-04.json": "8caae6b9a43256f5791d62003ef6addea0d629c920906f05184b3b62e14862dc",
+		"cases/darwin-x64/chromium/RB-05.json": "e53c58c0c52df17a7fedcab7ee154bd4e00bee5d41cfde6b58a1bbb17cc6e04d",
+		"cases/darwin-x64/chromium/RB-06.json": "dbfb100f26a5de22ef6f9047e5f66a6a0508f2d00455250d4a74480f9c9058bd",
+		"cases/darwin-x64/chromium/RB-EVIDENCE.json": "e449bb095f5d836dd43232fabdd40ec262f6409bed0349a3ea99f56dac3636e7",
+		"cases/darwin-x64/chromium/RB-PBT.json": "82de3302f832aa4fa9521345bc1832da296a5e73030b1f169ef0da1c41acd403",
+		"cases/darwin-x64/firefox/RB-01.json": "9e85a34233ff4592276dd5ea1d9280b38ddc91531b20c5703f7f628385a4e457",
+		"cases/darwin-x64/firefox/RB-02.json": "beb29b91cedee6325754b9c254254aca98cdbbd19af5d6df041597e83613c23a",
+		"cases/darwin-x64/firefox/RB-03.json": "2748f50e12da7efb177bfc6e4ef6ecd95b0bd30208522f98e5ae476ecd28cb81",
+		"cases/darwin-x64/firefox/RB-04.json": "f1486eda53a24feb6ca2b7c126f6eff7d7778379cdbe43b15d1d80db727e03d7",
+		"cases/darwin-x64/firefox/RB-05.json": "f90ea6b53711d8d11f915da570a9638609b2db853abf1e9b98a291e1fc03e7ce",
+		"cases/darwin-x64/firefox/RB-06.json": "1d3304445d08414ba7e9ed9f92fedfef0cd337a304fe0a1d7e26411e02232c90",
+		"cases/darwin-x64/firefox/RB-EVIDENCE.json": "7894b269ea2652d42f2bdf53f2c0cebb8a30b88b8e2be6e5867745710acb28f2",
+		"cases/darwin-x64/firefox/RB-PBT.json": "44803c0984315ed08b2842a609bf6a9e8d809eb0f5df83cc027459b8dae5b41c",
+		"cases/darwin-x64/webkit/RB-01.json": "60017d614bf7f1af70f446116472c57dd804aacfcd7d7cbf1707f8da7fd05917",
+		"cases/darwin-x64/webkit/RB-02.json": "f52623d78f5893f2b04ef38c20625760dff683f61a0cf1c397535e804395cca0",
+		"cases/darwin-x64/webkit/RB-03.json": "a29d86a39628bef83aa47fd59451d849318ba3e32eb8a40ebee16898c034b019",
+		"cases/darwin-x64/webkit/RB-04.json": "656045fee3a878d4ec736159e055f2c9744e1c7c89744cd38632464007c02446",
+		"cases/darwin-x64/webkit/RB-05.json": "a1ca4550ffc220fd915113c234a6115e135c04bafca6fabf7a9aea6fd9646c32",
+		"cases/darwin-x64/webkit/RB-06.json": "7400ed2f2dae9259c606535f67a043446db56f7a1232424db353954cddc0c305",
+		"cases/darwin-x64/webkit/RB-PBT.json": "de419e9f5234f65c63f4f7c04590c9e1742bfa81af31c9e96d0678ac7cc00a11"
 	}
 }

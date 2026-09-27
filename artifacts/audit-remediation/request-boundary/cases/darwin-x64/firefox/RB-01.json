@@ -275,7 +275,7 @@
 	],
 	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-01( |$)\"",
 	"exitCode": 0,
-	"sourceCommit": "29de85bd7a236918a1787d34addf787aafb2f92d",
+	"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
 	"environment": {
 		"platform": "darwin x64",
 		"node": "v24.1.0",
@@ -285,5 +285,5 @@
 	"evidencePaths": [
 		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-01.json"
 	],
-	"timestamp": "2026-09-27T07:33:35.677Z"
+	"timestamp": "2026-09-27T10:10:49.642Z"
 }

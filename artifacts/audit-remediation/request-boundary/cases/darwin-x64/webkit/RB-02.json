@@ -59,7 +59,7 @@
 		},
 		{
 			"observed": "true",
-			"expected": "multiple API calls observed (observed 16)",
+			"expected": "multiple API calls observed (observed 19)",
 			"pass": true
 		},
 		{
@@ -74,7 +74,7 @@
 		},
 		{
 			"observed": "true",
-			"expected": "dev: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: NetworkError when attempting to fetch resource.\"})",
+			"expected": "dev: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
 			"pass": true
 		},
 		{
@@ -89,7 +89,7 @@
 		},
 		{
 			"observed": "true",
-			"expected": "launcher: browser cross-port origin POST blocked or 403 (observed {\"blocked\":\"TypeError: NetworkError when attempting to fetch resource.\"})",
+			"expected": "launcher: browser cross-port origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
 			"pass": true
 		},
 		{
@@ -99,7 +99,7 @@
 		},
 		{
 			"observed": "true",
-			"expected": "launcher: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: NetworkError when attempting to fetch resource.\"})",
+			"expected": "launcher: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
 			"pass": true
 		},
 		{
@@ -119,11 +119,11 @@
 	"environment": {
 		"platform": "darwin x64",
 		"node": "v24.1.0",
-		"project": "firefox",
+		"project": "webkit",
 		"launchPaths": "dev+launcher"
 	},
 	"evidencePaths": [
-		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-02.json"
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-02.json"
 	],
-	"timestamp": "2026-09-27T10:11:52.403Z"
+	"timestamp": "2026-09-27T10:14:45.724Z"
 }

@@ -7,6 +7,7 @@ import {
 	mkdtempSync,
 	openSync,
 	renameSync,
+	rmSync,
 	writeSync,
 } from "node:fs";
 import http from "node:http";
@@ -44,7 +45,7 @@ export const ARTIFACTS_ROOT = join(REPO_ROOT, "artifacts", "audit-remediation", 
 const SCRUB_PATTERN =
 	/API_KEY|TOKEN|SECRET|CREDENTIAL|ANTHROPIC|OPENAI|GEMINI|GOOGLE_API|BEDROCK|AZURE|COHERE|MISTRAL|GROQ|XAI|_KEY$/i;
 
-function disposableEnv(extra?: Record<string, string>): { env: NodeJS.ProcessEnv; home: string } {
+function disposableEnv(extra?: Record<string, string>): { env: NodeJS.ProcessEnv; home: string; scratchDirs: string[] } {
 	const home = mkdtempSync(join(tmpdir(), "rb-audit-home-"));
 	const env: NodeJS.ProcessEnv = {};
 	for (const [key, value] of Object.entries(process.env)) {
@@ -58,7 +59,7 @@ function disposableEnv(extra?: Record<string, string>): { env: NodeJS.ProcessEnv
 	env.PRIME_AGENT_CODING_AGENT_DIR = mkdtempSync(join(tmpdir(), "rb-audit-agent-"));
 	env.PRIME_AGENT_WORKSPACE_ROOT = mkdtempSync(join(tmpdir(), "rb-audit-workspace-"));
 	for (const [key, value] of Object.entries(extra ?? {})) env[key] = value;
-	return { env, home };
+	return { env, home, scratchDirs: [home, env.PRIME_AGENT_CODING_AGENT_DIR, env.PRIME_AGENT_WORKSPACE_ROOT] };
 }
 
 function waitFor(predicate: () => boolean | Promise<boolean>, timeoutMs: number, label: string): Promise<void> {
@@ -81,7 +82,7 @@ export async function startServer(kind: LaunchPath, options?: { ttlMs?: number }
 	const extraEnv: Record<string, string> =
 		kind === "dev" ? { VITE_FLEET_DISABLE_AGENTATION: "1" } : {};
 	if (options?.ttlMs !== undefined) extraEnv.FLEET_REQUEST_POLICY_GRANT_TTL_MS = String(options.ttlMs);
-	const { env, home } = disposableEnv(extraEnv);
+	const { env, home, scratchDirs } = disposableEnv(extraEnv);
 
 	const command =
 		kind === "dev"
@@ -115,11 +116,22 @@ export async function startServer(kind: LaunchPath, options?: { ttlMs?: number }
 					setTimeout(done, 500);
 				}, 3000);
 			});
-			// Scratch dirs are intentionally NOT removed: the per-user prime-agent
-			// daemon a fixture may have spawned keeps its supervisor registry under
-			// this HOME, and deleting that registry wedges the daemon for every
-			// later fixture ("registry entry is missing") until it is restarted.
-			// The dirs are small temp files; the OS reclaims them.
+			// Remove this fixture's scratch dirs. The earlier rationale for
+			// keeping them ("small temp files; the OS reclaims them") was wrong:
+			// a launcher fixture's HOME accumulates a uv cache under .cache that
+			// reaches hundreds of MB, and across a full multi-engine audit run
+			// that leaked gigabytes into the per-user TMPDIR. The supervisor
+			// registry concern only applies to a *shared* per-user HOME; these
+			// dirs are created per fixture in disposableEnv() and are unreachable
+			// by any other fixture, so removal is safe once the child is dead.
+			for (const dir of scratchDirs) {
+				try {
+					rmSync(dir, { recursive: true, force: true, maxRetries: 3 });
+				} catch {
+					// Best-effort: a wedged child may still hold the dir open. The
+					// OS reclaims TMPDIR on reboot, and the leak is now bounded.
+				}
+			}
 		},
 	};
 	child.stdout?.on("data", (chunk: Buffer) => {
