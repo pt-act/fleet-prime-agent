@@ -14,6 +14,7 @@ import {
 } from "../prime-agent-presentation";
 import type { BridgeSession, PrimeBridge } from "../prime-bridge";
 import { resetBridgeForTests, setBridgeForTests } from "../singleton";
+import { testRequest } from "./test-request";
 
 const VALID_DOCUMENT = `<!doctype html>
 <html>
@@ -217,7 +218,7 @@ describe("handleChatOpenUIArtifactPut", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatOpenUIArtifactPut(
-			new Request("http://localhost/api/chat/artifacts", {
+			testRequest("http://localhost:3000/api/chat/artifacts", {
 				method: "PUT",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(requestBody()),
@@ -242,13 +243,13 @@ describe("handleChatOpenUIArtifactPut", () => {
 		setBridgeForTests({ getSession, resetForTests: vi.fn() } as unknown as PrimeBridge);
 
 		const unsafe = await handleChatOpenUIArtifactPut(
-			new Request("http://localhost/api/chat/artifacts", {
+			testRequest("http://localhost:3000/api/chat/artifacts", {
 				method: "PUT",
 				body: JSON.stringify(requestBody('<script src="https://bad.test/x.js"></script>')),
 			}),
 		);
 		const oversized = await handleChatOpenUIArtifactPut(
-			new Request("http://localhost/api/chat/artifacts", {
+			testRequest("http://localhost:3000/api/chat/artifacts", {
 				method: "PUT",
 				body: JSON.stringify(requestBody("x".repeat(MAX_OPENUI_HTML_ARTIFACT_BYTES))),
 			}),

@@ -11,7 +11,7 @@ import { wrapApiHandler } from "../wrap-api-handler";
  * @returns A JSON response containing the validated mutation result
  */
 export function handleChatQueueMutationPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const body = ChatQueueMutationRequestSchema.parse(await request.json().catch(() => ({})));
 		const result = await getBridge().deleteQueuedMessage(body.sessionId, body.lane, body.index, body.expectedText);
 		return Response.json(ChatQueueMutationResponseSchema.parse(result));

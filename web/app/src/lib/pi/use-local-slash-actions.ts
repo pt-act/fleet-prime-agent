@@ -9,6 +9,7 @@ import {
 import type { ChatSessionInfo, ChatSessionMetadata, ChatThinkingLevel } from "@prime-agent/web-protocol/chat-protocol";
 import type { ChatMessage } from "@prime-agent/web-protocol/chat-types";
 import { useCallback } from "react";
+import { authorizedFetch } from "./chat-fetch";
 import { assistantTextFromMessage } from "./chat-message-helpers";
 import type { LocalSlashAction, SettingsSlashTab } from "./slash-commands";
 import { parseSlashInput, resolveLocalSlashAction } from "./slash-commands";
@@ -175,7 +176,7 @@ export function useLocalSlashActions({
 				};
 			}
 			try {
-				const response = await fetch(CHAT_COMMAND_URL, {
+				const response = await authorizedFetch(CHAT_COMMAND_URL, {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({ sessionId, command, args }),
@@ -184,7 +185,11 @@ export function useLocalSlashActions({
 					let message = `HTTP ${response.status}`;
 					try {
 						const errorPayload = (await response.json()) as Record<string, unknown>;
-						if (typeof errorPayload.message === "string") message = errorPayload.message;
+						const nested = (errorPayload.error ?? {}) as Record<string, unknown>;
+						const flat = typeof errorPayload.message === "string" ? errorPayload.message : undefined;
+						const nestedMessage = typeof nested.message === "string" ? nested.message : undefined;
+						const resolved = nestedMessage ?? flat;
+						if (resolved) message = resolved;
 					} catch {
 						// Non-JSON error body — fall back to the HTTP status.
 					}

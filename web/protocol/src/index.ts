@@ -56,6 +56,30 @@ export * from "./openui-artifact";
 export { buildOpenUIPrompt, type OpenUIPromptMode } from "./openui-prompt";
 export * from "./provider-catalog";
 export {
+	evaluateRequestOrigin,
+	isLoopbackHostname,
+	parseHostAuthority,
+	REQUEST_POLICY_BOUND_ORIGIN_HEADER,
+	REQUEST_POLICY_CONTRACT_VERSION,
+	REQUEST_POLICY_FINGERPRINT,
+	REQUEST_POLICY_PROTOCOL_HEADER,
+	REQUEST_POLICY_PROTOCOL_VERSION,
+	REQUEST_POLICY_SHAPE,
+	type RequestPolicyAdmittedContext,
+	type RequestPolicyAuthenticatedHeaders,
+	type RequestPolicyBootstrapResponse,
+	type RequestPolicyError,
+	type RequestPolicyErrorCode,
+	type RequestPolicyErrorEnvelope,
+	type RequestPolicyErrorField,
+} from "./request-policy";
+export {
+	RequestPolicyBootstrapResponseSchema,
+	RequestPolicyErrorCodeSchema,
+	RequestPolicyErrorEnvelopeSchema,
+	RequestPolicyErrorSchema,
+} from "./request-policy.zod";
+export {
 	ChatNewRequestSchema,
 	ChatOpenUIArtifactPayloadSchema,
 	ChatOpenUIArtifactUpsertRequestSchema,

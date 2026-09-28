@@ -73,14 +73,14 @@ function buildResponse(cwd: string) {
 }
 
 export function handleChatSettingsGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const cwd = await cwdForRequest(request);
 		return Response.json(buildResponse(cwd));
 	});
 }
 
 export function handleChatSettingsPatch(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const [cwd, raw] = await Promise.all([cwdForRequest(request), request.json().catch(() => ({}))]);
 		const body = ChatSettingsUpdateRequestSchema.parse(raw);
 		const config = getPrimeConfig();

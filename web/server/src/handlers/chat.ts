@@ -26,7 +26,7 @@ export function chooseChatStartId(
 }
 
 export function handleChatPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json();
 		const body = ChatRequestSchema.parse(raw);
 		const { sessionId, message, model, mode, openUI, openUIArtifact, planAction } = body;

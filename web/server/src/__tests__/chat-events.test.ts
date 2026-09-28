@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { handleChatEventsGet } from "../handlers/chat-events";
 import type { PrimeBridge, RlmChildStream } from "../prime-bridge";
 import { resetBridgeForTests, setBridgeForTests } from "../singleton";
+import { testRequest } from "./test-request";
 
 const emptyPresentation = {
 	revision: 0,
@@ -32,19 +33,19 @@ describe("handleChatEventsGet child streams", () => {
 		setBridgeForTests(bridgeWith({ openRlmChildStream }));
 
 		const incomplete = await handleChatEventsGet(
-			new Request("http://localhost/api/chat/events?parentSessionId=parent-session"),
+			testRequest("http://localhost:3000/api/chat/events?parentSessionId=parent-session"),
 		);
 		const invalid = await handleChatEventsGet(
-			new Request("http://localhost/api/chat/events?parentSessionId=../private&childId=child-1"),
+			testRequest("http://localhost:3000/api/chat/events?parentSessionId=../private&childId=child-1"),
 		);
 		const mixed = await handleChatEventsGet(
-			new Request(
-				"http://localhost/api/chat/events?sessionId=root-session&parentSessionId=parent-session&childId=child-1",
+			testRequest(
+				"http://localhost:3000/api/chat/events?sessionId=root-session&parentSessionId=parent-session&childId=child-1",
 			),
 		);
 		const invalidGeneration = await handleChatEventsGet(
-			new Request(
-				"http://localhost/api/chat/events?parentSessionId=parent-session&childId=child-1&streamGeneration=bad%20generation",
+			testRequest(
+				"http://localhost:3000/api/chat/events?parentSessionId=parent-session&childId=child-1&streamGeneration=bad%20generation",
 			),
 		);
 
@@ -81,7 +82,7 @@ describe("handleChatEventsGet child streams", () => {
 		setBridgeForTests(bridge);
 
 		const response = await handleChatEventsGet(
-			new Request("http://localhost/api/chat/events?parentSessionId=parent-session&childId=child-1"),
+			testRequest("http://localhost:3000/api/chat/events?parentSessionId=parent-session&childId=child-1"),
 		);
 		expect(response.status).toBe(200);
 
@@ -125,8 +126,8 @@ describe("handleChatEventsGet child streams", () => {
 		setBridgeForTests(bridgeWith({ openRlmChildStream }));
 
 		const response = await handleChatEventsGet(
-			new Request(
-				"http://localhost/api/chat/events?parentSessionId=parent-session&childId=child-1&streamGeneration=generation-2&lastEventId=41",
+			testRequest(
+				"http://localhost:3000/api/chat/events?parentSessionId=parent-session&childId=child-1&streamGeneration=generation-2&lastEventId=41",
 			),
 		);
 		expect(response.status).toBe(200);
@@ -170,7 +171,9 @@ describe("handleChatEventsGet child streams", () => {
 		setBridgeForTests(bridgeWith({ openRlmChildStream: vi.fn(async () => childStream) }));
 
 		const response = await handleChatEventsGet(
-			new Request("http://localhost/api/chat/events?parentSessionId=parent-session&childId=child-1&lastEventId=12"),
+			testRequest(
+				"http://localhost:3000/api/chat/events?parentSessionId=parent-session&childId=child-1&lastEventId=12",
+			),
 		);
 		expect(response.status).toBe(200);
 		const body = await response.text();
@@ -184,7 +187,7 @@ describe("handleChatEventsGet child streams", () => {
 		setBridgeForTests(bridgeWith({ openRlmChildStream }));
 
 		const response = await handleChatEventsGet(
-			new Request("http://localhost/api/chat/events?parentSessionId=parent-session&childId=child-1"),
+			testRequest("http://localhost:3000/api/chat/events?parentSessionId=parent-session&childId=child-1"),
 		);
 
 		expect(response.status).toBe(404);

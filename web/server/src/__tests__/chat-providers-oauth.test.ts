@@ -11,6 +11,7 @@ import {
 	resetOAuthLoginsForTests,
 	startOAuthLogin,
 } from "../handlers/chat-providers-oauth";
+import { testRequest } from "./test-request";
 
 afterEach(() => {
 	resetOAuthLoginsForTests();
@@ -226,7 +227,7 @@ describe("startOAuthLogin", () => {
 describe("handleChatProvidersOAuthPost", () => {
 	it("rejects unknown OAuth providers", async () => {
 		const response = await handleChatProvidersOAuthPost(
-			new Request("http://localhost/api/chat/providers/oauth", {
+			testRequest("http://localhost:3000/api/chat/providers/oauth", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ providerId: "not-a-provider" }),

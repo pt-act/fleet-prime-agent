@@ -12,7 +12,7 @@ const BodySchema = z.object({
 });
 
 export function handleChatModelPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const body = BodySchema.parse(raw);
 		const bridge = getBridge();

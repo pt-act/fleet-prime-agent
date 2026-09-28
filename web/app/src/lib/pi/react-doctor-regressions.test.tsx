@@ -1,4 +1,5 @@
 import { render, renderHook, act, fireEvent } from "@testing-library/react"
+import { type FetchEventMessage, setEventStreamConstructorForTests } from "./chat-fetch";
 import { useRef } from "react"
 import { afterEach, describe, expect, it, vi } from "vitest"
 import { Popover } from "@prime-agent/web-design/components/registry/beui/agents/input/input-popover"
@@ -12,6 +13,7 @@ import { usePiChat } from "./use-pi-chat"
 describe("React Doctor lifecycle and accessibility regressions", () => {
   afterEach(() => {
     vi.unstubAllGlobals()
+    setEventStreamConstructorForTests(null)
   })
 
   it("connects a Popover trigger to its popup with aria-controls", () => {
@@ -147,14 +149,14 @@ describe("React Doctor lifecycle and accessibility regressions", () => {
     class TestEventSource {
       static instances: TestEventSource[] = []
       readonly close = vi.fn()
-      onmessage: ((event: MessageEvent<string>) => void) | null = null
+      onmessage: ((event: FetchEventMessage) => void) | null = null
       onerror: (() => void) | null = null
 
       constructor(readonly url: string) {
         TestEventSource.instances.push(this)
       }
     }
-    vi.stubGlobal("EventSource", TestEventSource)
+    setEventStreamConstructorForTests(TestEventSource)
 
     const metadata: ChatSessionMetadata = { sessionId: "session-1" }
     const client = {

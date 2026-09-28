@@ -3,7 +3,7 @@ import { readWorkspaceFile } from "../workspace-file";
 import { wrapApiHandler } from "../wrap-api-handler";
 
 export function handleWorkspaceFileGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const url = new URL(request.url);
 		const path = url.searchParams.get("path") ?? "";
 		const result = await readWorkspaceFile(await cwdForRequest(request), path);

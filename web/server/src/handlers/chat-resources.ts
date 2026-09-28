@@ -16,7 +16,7 @@ function packageSourceToString(source: string | { source: string; [key: string]:
 }
 
 export function handleChatResourcesGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const cwd = await cwdForRequest(request);
 		const config = getPrimeConfig();
 		const settings = config.settingsFor(cwd);

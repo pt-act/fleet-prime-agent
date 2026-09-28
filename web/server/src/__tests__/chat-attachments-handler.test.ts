@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { testRequest } from "./test-request";
 
 const bridgeMock = vi.hoisted(() => ({
 	getSession: vi.fn(),
@@ -37,7 +38,7 @@ describe("chat attachment upload ordering", () => {
 		form.append("files", new File(["second"], "second.txt", { type: "text/plain" }));
 
 		const response = await handleChatAttachmentsPost(
-			new Request("http://localhost/api/chat/attachments", {
+			testRequest("http://localhost:3000/api/chat/session", {
 				method: "POST",
 				body: form,
 			}),
@@ -58,7 +59,7 @@ describe("chat attachment upload ordering", () => {
 		);
 
 		const response = await handleChatAttachmentsPost(
-			new Request("http://localhost/api/chat/attachments", {
+			testRequest("http://localhost:3000/api/chat/session", {
 				method: "POST",
 				body: form,
 			}),

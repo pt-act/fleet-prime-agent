@@ -1,0 +1,129 @@
+{
+	"caseId": "RB-02",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "dev: re-bootstrap mints a distinct grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: replayed superseded grant -> 401 AUTH_REQUIRED (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: current grant admitted -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: fresh short-TTL grant admitted -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: expired grant replay -> 401 AUTH_REQUIRED (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: re-bootstrap mints a distinct grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: replayed superseded grant -> 401 AUTH_REQUIRED (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: current grant admitted -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: fresh short-TTL grant admitted -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: expired grant replay -> 401 AUTH_REQUIRED (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "exactly one bootstrap request (observed 1)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "multiple API calls observed (observed 19)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: browser cross-port origin POST blocked or 403 (observed {\"status\":403})",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-port Origin -> 403 at the boundary (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: non-loopback Origin -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-origin attempts changed no server state",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: browser cross-port origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-port Origin -> 403 at the boundary (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: browser non-loopback origin POST blocked or 403 (observed {\"blocked\":\"TypeError: Load failed\"})",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: non-loopback Origin -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-origin attempts changed no server state",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-02( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "webkit",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/webkit/RB-02.json"
+	],
+	"timestamp": "2026-09-27T10:14:45.724Z"
+}

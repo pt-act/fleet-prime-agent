@@ -4,12 +4,14 @@ import {
 	handleChatPlanPresentationPut,
 	handleChatQueueMutationPost,
 	handleChatSessionGet,
+	methodNotAllowed,
 } from "@prime-agent/web-server";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/api/chat/session")({
 	server: {
 		handlers: {
+			ANY: () => methodNotAllowed(),
 			GET: ({ request }) =>
 				new URL(request.url).searchParams.has("attachmentId")
 					? handleChatAttachmentGet(request)

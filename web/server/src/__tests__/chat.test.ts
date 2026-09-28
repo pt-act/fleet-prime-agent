@@ -9,6 +9,7 @@ import { sessionStatus } from "../handlers/projects";
 import type { BridgeSession, PrimeBridge } from "../prime-bridge";
 import { sessionCommandResultText } from "../session-commands";
 import { resetBridgeForTests, setBridgeForTests } from "../singleton";
+import { testRequest } from "./test-request";
 
 describe("handleChatPost attachment validation", () => {
 	let root: string;
@@ -38,7 +39,7 @@ describe("handleChatPost attachment validation", () => {
 	it("rejects duplicate attachment IDs before prompt execution", async () => {
 		const attachmentId = crypto.randomUUID();
 		const response = await handleChatPost(
-			new Request("http://localhost/api/chat", {
+			testRequest("http://localhost:3000/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -89,7 +90,7 @@ describe("handleChatPost attachment validation", () => {
 		);
 
 		const response = await handleChatPost(
-			new Request("http://localhost/api/chat", {
+			testRequest("http://localhost:3000/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ sessionId: session.sessionId, message: "Review these files", attachments }),
@@ -148,7 +149,7 @@ describe("handleChatPost attachment validation", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatPost(
-			new Request("http://localhost/api/chat", {
+			testRequest("http://localhost:3000/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ sessionId: streamSession.sessionId, message: "/refine" }),
@@ -205,7 +206,7 @@ describe("handleChatPost attachment validation", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatPost(
-			new Request("http://localhost/api/chat", {
+			testRequest("http://localhost:3000/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ sessionId: streamSession.sessionId, message: "/refine" }),
@@ -270,7 +271,7 @@ describe("handleChatPost attachment validation", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatPost(
-			new Request("http://localhost/api/chat", {
+			testRequest("http://localhost:3000/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ sessionId: streamSession.sessionId, message: "primary" }),
@@ -329,7 +330,7 @@ describe("handleChatPost attachment validation", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatPost(
-			new Request("http://localhost/api/chat", {
+			testRequest("http://localhost:3000/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ sessionId: streamSession.sessionId, message: "primary" }),
@@ -370,7 +371,7 @@ describe("handleChatNewPost", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatNewPost(
-			new Request("http://localhost/api/chat/new", {
+			testRequest("http://localhost:3000/api/chat/new", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -415,7 +416,7 @@ describe("handleChatNewPost", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatNewPost(
-			new Request("http://localhost/api/chat/new", {
+			testRequest("http://localhost:3000/api/chat/new", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ openUI: true }),
@@ -449,7 +450,7 @@ describe("handleChatNewPost", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatSessionGet(
-			new Request("http://localhost/api/chat/session?sessionId=session-1&openUI=true"),
+			testRequest("http://localhost:3000/api/chat/session?sessionId=session-1&openUI=true"),
 		);
 
 		expect(response.status).toBe(200);
@@ -472,7 +473,7 @@ describe("handleChatNewPost", () => {
 		setBridgeForTests({ loadRlmChildTranscript } as unknown as PrimeBridge);
 
 		const response = await handleChatSessionGet(
-			new Request("http://localhost/api/chat/session?parentSessionId=parent-session&childId=child-1"),
+			testRequest("http://localhost:3000/api/chat/session?parentSessionId=parent-session&childId=child-1"),
 		);
 
 		expect(response.status).toBe(200);
@@ -485,10 +486,10 @@ describe("handleChatNewPost", () => {
 		setBridgeForTests({ loadRlmChildTranscript } as unknown as PrimeBridge);
 
 		const response = await handleChatSessionGet(
-			new Request("http://localhost/api/chat/session?parentSessionId=parent-session"),
+			testRequest("http://localhost:3000/api/chat/session?parentSessionId=parent-session"),
 		);
 		const invalidResponse = await handleChatSessionGet(
-			new Request("http://localhost/api/chat/session?parentSessionId=../private&childId=child-1"),
+			testRequest("http://localhost:3000/api/chat/session?parentSessionId=../private&childId=child-1"),
 		);
 
 		expect(response.status).toBe(400);
@@ -504,12 +505,13 @@ describe("handleChatNewPost", () => {
 		} as unknown as PrimeBridge);
 
 		const response = await handleChatSessionGet(
-			new Request("http://localhost/api/chat/session?parentSessionId=parent-session&childId=child-1"),
+			testRequest("http://localhost:3000/api/chat/session?parentSessionId=parent-session&childId=child-1"),
 		);
-		const body = (await response.json()) as { message?: string };
+		const body = (await response.json()) as { error?: { code?: string } };
 
 		expect(response.status).toBe(500);
-		expect(body.message).not.toContain("/tmp/private/child.jsonl");
+		expect(body.error?.code).toBe("INTERNAL_ERROR");
+		expect(JSON.stringify(body)).not.toContain("/tmp/private/child.jsonl");
 	});
 });
 

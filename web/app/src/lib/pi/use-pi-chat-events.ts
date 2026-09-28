@@ -7,9 +7,8 @@ import type {
 import type { ChatMessage, ChatStatus } from "@prime-agent/web-protocol/chat-types";
 import { type MutableRefObject, useEffect } from "react";
 import type { ChatClient } from "./chat-client";
-import type { QueueState } from "./chat-fetch";
+import { type EventStreamLike, eventStreamConstructor, type QueueState } from "./chat-fetch";
 import { upsertAssistantReasoningPresentation } from "./chat-message-helpers";
-import { resolveChatApiUrl } from "./chat-runtime-url";
 import { EMPTY_QUEUE_STATE } from "./chat-stream-state";
 import { hydratePlanPresentationMessages } from "./plan-presentation";
 
@@ -53,11 +52,11 @@ export function usePiChatSessionEvents({
 		let lastEventId = Number.parseInt(window.sessionStorage.getItem(lastEventIdKey) ?? "0", 10);
 		if (Number.isNaN(lastEventId)) lastEventId = 0;
 
-		let source: EventSource | null = null;
+		let source: EventStreamLike | null = null;
 		let reconnectTimer: ReturnType<typeof setTimeout> | null = null;
 		let closedByEffect = false;
 
-		const handleEvent = (raw: MessageEvent<string>) => {
+		const handleEvent = (raw: { data: string }) => {
 			let frame: ChatStreamEvent;
 			try {
 				frame = JSON.parse(raw.data) as ChatStreamEvent;
@@ -147,12 +146,12 @@ export function usePiChatSessionEvents({
 			const params = new URLSearchParams({ sessionId });
 			if (lastEventId > 0) params.set("lastEventId", String(lastEventId));
 			source?.close();
-			const nextSource = new EventSource(resolveChatApiUrl(`/api/chat/events?${params}`));
+			const nextSource = new eventStreamConstructor(`/api/chat/events?${params}`);
 			source = nextSource;
 			nextSource.onmessage = (event) => {
-				// Browser EventSource implementations can still dispatch an already
-				// queued event after close(). Do not let a previous connection update
-				// the state after a reconnect or visible-session switch.
+				// A previous connection can still deliver an already-queued event
+				// after close(). Do not let it update state after a reconnect or
+				// visible-session switch.
 				if (closedByEffect || source !== nextSource) return;
 				const seq = Number.parseInt(event.lastEventId ?? "", 10);
 				if (!Number.isNaN(seq) && seq > 0) {

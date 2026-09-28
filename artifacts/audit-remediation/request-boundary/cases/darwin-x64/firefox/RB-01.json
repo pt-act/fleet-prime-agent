@@ -1,0 +1,289 @@
+{
+	"caseId": "RB-01",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "dev: admitted POST /api/chat/new -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: absent-origin POST /api/chat/new -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: absent-origin GET /api/chat/sessions -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: absent-origin GET /api/chat/events (stream open) admitted (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: absent-origin GET / (static shell) -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: exact-own-origin POST /api/chat/new -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: exact-own-origin GET /api/chat/sessions -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: exact-own-origin GET /api/chat/events (stream open) admitted (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: exact-own-origin GET / (static shell) -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-port-origin POST /api/chat/new -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-port-origin mutation denial carries ORIGIN_DENIED",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-port-origin GET /api/chat/sessions -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-port-origin GET /api/chat/events (stream open) -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-port-origin GET / (static shell) -> 200 or launcher-strict 403 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-host-origin POST /api/chat/new -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-host-origin mutation denial carries ORIGIN_DENIED",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-host-origin GET /api/chat/sessions -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-host-origin GET /api/chat/events (stream open) -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: cross-host-origin GET / (static shell) -> 200 or launcher-strict 403 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: non-loopback-origin POST /api/chat/new -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: non-loopback-origin mutation denial carries ORIGIN_DENIED",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: non-loopback-origin GET /api/chat/sessions -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: non-loopback-origin GET /api/chat/events (stream open) -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: non-loopback-origin GET / (static shell) -> 200 or launcher-strict 403 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: admitted POST /api/chat/new -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: absent-origin POST /api/chat/new -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: absent-origin GET /api/chat/sessions -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: absent-origin GET /api/chat/events (stream open) admitted (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: absent-origin GET / (static shell) -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: exact-own-origin POST /api/chat/new -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: exact-own-origin GET /api/chat/sessions -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: exact-own-origin GET /api/chat/events (stream open) admitted (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: exact-own-origin GET / (static shell) -> 200 (got 200)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-port-origin POST /api/chat/new -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-port-origin mutation denial carries ORIGIN_DENIED",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-port-origin GET /api/chat/sessions -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-port-origin GET /api/chat/events (stream open) -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-port-origin GET / (static shell) -> 200 or launcher-strict 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-host-origin POST /api/chat/new -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-host-origin mutation denial carries ORIGIN_DENIED",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-host-origin GET /api/chat/sessions -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-host-origin GET /api/chat/events (stream open) -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: cross-host-origin GET / (static shell) -> 200 or launcher-strict 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: non-loopback-origin POST /api/chat/new -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: non-loopback-origin mutation denial carries ORIGIN_DENIED",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: non-loopback-origin GET /api/chat/sessions -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: non-loopback-origin GET /api/chat/events (stream open) -> 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: non-loopback-origin GET / (static shell) -> 200 or launcher-strict 403 (got 403)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: served HTML has no form posting to an external origin",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "dev: served HTML has no external window.open",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: served HTML has no form posting to an external origin",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "launcher: served HTML has no external window.open",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "built client: window.open never targets an external origin (observed 4 calls, 0 external)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app source: no external-origin window.open (observed 0)",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-01( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "firefox",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-01.json"
+	],
+	"timestamp": "2026-09-27T10:10:49.642Z"
+}

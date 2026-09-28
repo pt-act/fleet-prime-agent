@@ -154,8 +154,8 @@ export function listChatProviders(): Array<ChatProviderInfo> {
 	return buildProviders();
 }
 
-export function handleChatProvidersGet(_request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+export function handleChatProvidersGet(request: Request): Promise<Response> {
+	return wrapApiHandler(request, async () => {
 		return Response.json({ providers: buildProviders() });
 	});
 }
@@ -178,7 +178,7 @@ function requireBaseUrl(baseUrl: string | undefined, providerId: string): string
 }
 
 export function handleChatProvidersPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const body = ChatProviderUpdateRequestSchema.parse(raw);
 		const config = getPrimeConfig();
@@ -263,7 +263,7 @@ export function handleChatProvidersPost(request: Request): Promise<Response> {
 }
 
 export function handleChatProvidersDelete(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const body = ChatProviderRemoveRequestSchema.parse(raw);
 		const config = getPrimeConfig();

@@ -16,7 +16,7 @@ function toPatternCandidate(model: { id: string; name: string; provider: string 
 }
 
 export function handleChatModelsGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const config = getPrimeConfig();
 		const cwd = await cwdForRequest(request);
 		const settings = config.settingsFor(cwd);

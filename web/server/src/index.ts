@@ -1,3 +1,4 @@
+export { handleBootstrapGet } from "./handlers/bootstrap";
 export { handleChatPost } from "./handlers/chat";
 export { handleChatAbortPost } from "./handlers/chat-abort";
 export { handleChatAttachmentGet, handleChatAttachmentsPost } from "./handlers/chat-attachments";
@@ -38,8 +39,31 @@ export {
 } from "./handlers/projects";
 export { handleWorkspaceBrowseGet } from "./handlers/workspace-browse";
 export { handleWorkspaceFileGet } from "./handlers/workspace-file";
+export { handleWorkspaceRootPost } from "./handlers/workspace-root";
 export { handleWorkspaceTreeGet } from "./handlers/workspace-tree";
 export { PrimeBridge } from "./prime-bridge";
 export type { PrimeConfig } from "./prime-config";
 export { getPrimeConfig } from "./prime-config";
+export {
+	type AdmissionDecision,
+	type AdmissionInputs,
+	type AdmissionResult,
+	admitRequest,
+	classifyRequest,
+	decideAdmission,
+	getAdmittedContext,
+	getLaunchId,
+	JSON_BODY_LIMIT_BYTES,
+	mintBootstrapGrant,
+	REQUEST_POLICY_GRANT_TTL_MS,
+	type RouteClass,
+	UPLOAD_BODY_LIMIT_BYTES,
+} from "./request-policy";
 export { getBridge, resetBridgeForTests, setBridgeForTests } from "./singleton";
+export {
+	chatErrorEnvelope,
+	isDaemonDisconnectError,
+	methodNotAllowed,
+	safeErrorMessage,
+	wrapApiHandler,
+} from "./wrap-api-handler";

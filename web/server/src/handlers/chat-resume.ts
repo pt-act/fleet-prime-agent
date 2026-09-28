@@ -7,7 +7,7 @@ import { wrapApiHandler } from "../wrap-api-handler";
 const BodySchema = ChatSessionMetadataSchema.extend({ sessionId: SessionIdSchema });
 
 export function handleChatResumePost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const body = BodySchema.parse(raw);
 		const bridge = getBridge();

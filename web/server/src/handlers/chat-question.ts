@@ -3,7 +3,7 @@ import { getBridge } from "../singleton";
 import { wrapApiHandler } from "../wrap-api-handler";
 
 export function handleChatQuestionPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json();
 		const body = ChatQuestionAnswerRequestSchema.parse(raw);
 		const sessionId = body.sessionId;

@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
+import { testRequest } from "./test-request";
 
 const mocks = vi.hoisted(() => {
 	const manager = {
@@ -34,7 +35,7 @@ import { handleChatSettingsGet } from "../handlers/chat-settings";
 describe("chat settings reads", () => {
 	it("reads the independent settings groups into one validated response", async () => {
 		const response = await handleChatSettingsGet(
-			new Request("http://localhost/api/chat/settings?projectId=project-1"),
+			testRequest("http://localhost:3000/api/chat/settings?projectId=project-1"),
 		);
 		const body = (await response.json()) as {
 			projectPath: string;

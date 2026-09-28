@@ -1,0 +1,89 @@
+{
+	"caseId": "RB-03",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "captured a real grant value from the bootstrap response",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "bootstrap is no-store (observed \"no-store\")",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "bootstrap sets no CORS header",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "wrong grant -> 401 (got 401)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "401 body does not contain the real grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "grant absent from page URL",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "grant absent from every request URL",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "grant absent from local/session storage",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "grant absent from browser console",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "no cookies at all (observed [])",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "no set-cookie headers observed on any response",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "grant absent from server stdout",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "grant absent from server stderr",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "unrelated local-port server received 0 requests",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-03( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "firefox",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-03.json"
+	],
+	"timestamp": "2026-09-27T10:12:04.858Z"
+}

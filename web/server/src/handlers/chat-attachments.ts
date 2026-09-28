@@ -18,8 +18,13 @@ async function resolveSession(sessionId: string) {
 }
 
 export function handleChatAttachmentsPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
-		const form = await request.formData();
+	return wrapApiHandler(request, async () => {
+		let form: FormData;
+		try {
+			form = await request.formData();
+		} catch {
+			return Response.json({ message: "Malformed multipart body" }, { status: 400 });
+		}
 		const sessionId = SessionIdSchema.parse(form.get("sessionId"));
 		const files = form.getAll("files").filter((value): value is File => value instanceof File);
 		if (files.length === 0) return Response.json({ message: "At least one file is required" }, { status: 400 });
@@ -50,7 +55,7 @@ export function handleChatAttachmentsPost(request: Request): Promise<Response> {
 }
 
 export function handleChatAttachmentGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const url = new URL(request.url);
 		const sessionId = SessionIdSchema.parse(url.searchParams.get("sessionId"));
 		const attachmentId = AttachmentIdSchema.parse(url.searchParams.get("attachmentId"));

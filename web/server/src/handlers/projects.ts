@@ -56,8 +56,8 @@ async function sessionProjectIds() {
  *
  * @returns A response containing project records with session counts and normalized session details.
  */
-export function handleProjectsGet(_request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+export function handleProjectsGet(request: Request): Promise<Response> {
+	return wrapApiHandler(request, async () => {
 		const { sessions, assignments } = await sessionProjectIds();
 		const counts = new Map<string, number>();
 		for (const projectId of assignments.values()) {
@@ -84,7 +84,7 @@ export function handleProjectsGet(_request: Request): Promise<Response> {
 }
 
 export function handleProjectsPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const body = ProjectCreateRequestSchema.parse(await request.json().catch(() => ({})));
 		const registry = getPrimeConfig().projectRegistry;
 		const path = await registry.resolveDirectoryInput(body);
@@ -93,7 +93,7 @@ export function handleProjectsPost(request: Request): Promise<Response> {
 }
 
 export function handleProjectPatch(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const projectId = ProjectIdSchema.parse(new URL(request.url).searchParams.get("projectId") ?? "");
 		const body = ProjectRenameRequestSchema.parse(await request.json().catch(() => ({})));
 		return Response.json({ project: await getPrimeConfig().projectRegistry.rename(projectId, body.name) });
@@ -101,14 +101,14 @@ export function handleProjectPatch(request: Request): Promise<Response> {
 }
 
 export function handleProjectDelete(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const projectId = ProjectIdSchema.parse(new URL(request.url).searchParams.get("projectId") ?? "");
 		return Response.json({ project: await getPrimeConfig().projectRegistry.unregister(projectId) });
 	});
 }
 
 export function handleProjectSessionFork(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const body = ProjectForkRequestSchema.parse(await request.json().catch(() => ({})));
 		const sessionId = await getBridge().forkSessionIntoProject(body.sessionId, body.targetProjectId);
 		return Response.json({ sessionId, projectId: body.targetProjectId }, { status: 201 });
@@ -116,7 +116,7 @@ export function handleProjectSessionFork(request: Request): Promise<Response> {
 }
 
 export function handleProjectBrowseGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const url = new URL(request.url);
 		const result = await getPrimeConfig().projectRegistry.browse({
 			path: url.searchParams.get("path") ?? undefined,

@@ -14,7 +14,7 @@ function artifactIndexFor(artifact: PrimeAgentArtifact): number | undefined {
 }
 
 export function handleChatOpenUIArtifactPut(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const parsed = ChatOpenUIArtifactUpsertRequestSchema.safeParse(raw);
 		if (!parsed.success) {

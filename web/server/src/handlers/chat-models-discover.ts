@@ -17,7 +17,7 @@ export function openAiModelsUrl(baseUrl: string): URL {
 }
 
 export function handleChatModelsDiscoverPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const raw = await request.json().catch(() => ({}));
 		const body = ChatModelsDiscoverRequestSchema.parse(raw);
 		const config = getPrimeConfig();

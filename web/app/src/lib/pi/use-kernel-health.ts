@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { resolveChatApiUrl } from "./chat-runtime-url";
+import { authorizedFetch } from "./chat-fetch";
 
 export type KernelHealth = {
 	ok: boolean;
@@ -17,7 +17,7 @@ export function useKernelHealth(pollMs = 15_000) {
 		let cancelled = false;
 		const tick = async () => {
 			try {
-				const response = await fetch(resolveChatApiUrl("/api/health"));
+				const response = await authorizedFetch("/api/health");
 				if (!response.ok) throw new Error(`http-${response.status}`);
 				const body = (await response.json()) as { kernel?: unknown };
 				if (!isKernelHealth(body.kernel)) throw new Error("invalid-response");

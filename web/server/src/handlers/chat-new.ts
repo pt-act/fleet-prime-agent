@@ -10,7 +10,7 @@ function toThinkingLevel(level: ChatThinkingLevel | undefined): ThinkingLevel | 
 }
 
 export function handleChatNewPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const bridge = getBridge();
 		const registry = getPrimeConfig().projectRegistry;
 		const raw = await request.json().catch(() => ({}));

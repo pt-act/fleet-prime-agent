@@ -10,7 +10,7 @@ const BodySchema = z.object({
 });
 
 export function handleChatCommandPost(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const body = BodySchema.parse(await request.json().catch(() => ({})));
 		const bridge = getBridge();
 		const args = body.args?.trim() ?? "";

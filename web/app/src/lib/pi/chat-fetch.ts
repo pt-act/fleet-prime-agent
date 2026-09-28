@@ -5,19 +5,58 @@ import type {
 	FleetErrorRemediation,
 } from "@prime-agent/web-protocol/chat-protocol";
 import { ChatStreamEventSchema } from "@prime-agent/web-protocol/chat-protocol.zod";
+import {
+	REQUEST_POLICY_PROTOCOL_HEADER,
+	type RequestPolicyBootstrapResponse,
+} from "@prime-agent/web-protocol/request-policy";
+import { RequestPolicyBootstrapResponseSchema } from "@prime-agent/web-protocol/request-policy.zod";
 import type { ZodType } from "zod";
 import { resolveChatApiUrl } from "@/lib/pi/chat-runtime-url";
 
-// v1 (Fleet Prime web): no auth — local tool bound to 127.0.0.1.
-function getChatAuthBearerToken(): string | null {
-	return null;
+// Request-boundary transport (request-boundary spec): the admission grant is
+// obtained from GET /api/bootstrap and held only in this module's memory —
+// never in URLs, storage, cookies or logs. Renewal is single-flight.
+type GrantState = { grant: string; launchId: string; expiresAtMs: number };
+let grantState: GrantState | null = null;
+let inflightBootstrap: Promise<GrantState | null> | null = null;
+const GRANT_RENEW_MARGIN_MS = 60_000;
+
+async function fetchBootstrap(): Promise<GrantState | null> {
+	try {
+		const response = await fetch(resolveChatApiUrl("/api/bootstrap"), {
+			cache: "no-store",
+			credentials: "omit",
+		});
+		if (!response.ok) return null;
+		const data: RequestPolicyBootstrapResponse = RequestPolicyBootstrapResponseSchema.parse(await response.json());
+		grantState = { grant: data.grant, launchId: data.launchId, expiresAtMs: Date.parse(data.expiresAt) };
+		return grantState;
+	} catch {
+		return null;
+	}
 }
-function clearChatAuthBearerTokenCache(): void {}
+
+function clearChatAuthBearerTokenCache(): void {
+	grantState = null;
+}
+
+async function getChatAuthBearerToken(): Promise<string | null> {
+	if (grantState && Date.now() < grantState.expiresAtMs - GRANT_RENEW_MARGIN_MS) {
+		return grantState.grant;
+	}
+	if (!inflightBootstrap) {
+		inflightBootstrap = fetchBootstrap().finally(() => {
+			inflightBootstrap = null;
+		});
+	}
+	const state = await inflightBootstrap;
+	return state ? state.grant : null;
+}
 
 export class ChatRequestError extends Error {
 	readonly status: number;
 	readonly body: string;
-	readonly code: FleetErrorCode | undefined;
+	readonly code: string | undefined;
 	readonly remediation: FleetErrorRemediation | undefined;
 
 	constructor(status: number, body: string) {
@@ -40,15 +79,24 @@ function isFleetErrorRemediation(value: unknown): value is FleetErrorRemediation
 	);
 }
 
-function parseErrorEnvelope(body: string): { code: FleetErrorCode; remediation?: FleetErrorRemediation } | null {
+function parseErrorEnvelope(body: string): { code: string; remediation?: FleetErrorRemediation } | null {
 	const trimmed = body.trim();
 	if (!trimmed) return null;
 	try {
-		const parsed = JSON.parse(trimmed) as { code?: unknown; remediation?: unknown };
-		if (typeof parsed.code === "string") {
+		const parsed = JSON.parse(trimmed) as {
+			code?: unknown;
+			error?: unknown;
+			remediation?: unknown;
+		};
+		// Current: { error: { code, ... } } request-boundary wrapper. Legacy: flat envelope.
+		const source =
+			parsed.error && typeof parsed.error === "object"
+				? (parsed.error as { code?: unknown; remediation?: unknown })
+				: parsed;
+		if (typeof source.code === "string") {
 			return {
-				code: parsed.code as FleetErrorCode,
-				remediation: isFleetErrorRemediation(parsed.remediation) ? parsed.remediation : undefined,
+				code: source.code,
+				remediation: isFleetErrorRemediation(source.remediation) ? source.remediation : undefined,
 			};
 		}
 	} catch {
@@ -58,12 +106,20 @@ function parseErrorEnvelope(body: string): { code: FleetErrorCode; remediation?:
 }
 
 function formatChatRequestErrorMessage(status: number, body: string) {
+	const envelope = parseErrorEnvelope(body);
+	if (envelope?.code === "CONTRACT_UPGRADE_REQUIRED") {
+		return "Fleet was updated. Reload this page to continue.";
+	}
+	if (envelope?.code === "AUTH_REQUIRED") {
+		return "Your Fleet session expired. Reloading the page will fix this.";
+	}
 	const trimmed = body.trim();
 	if (!trimmed) return `Request failed (${status})`;
 	try {
-		const parsed = JSON.parse(trimmed) as { message?: unknown };
-		if (typeof parsed.message === "string" && parsed.message.length > 0) {
-			return parsed.message;
+		const parsed = JSON.parse(trimmed) as { message?: unknown; error?: { message?: unknown } };
+		const message = parsed.error && typeof parsed.error === "object" ? parsed.error.message : parsed.message;
+		if (typeof message === "string" && message.length > 0) {
+			return message;
 		}
 	} catch {
 		// Keep raw body when the server did not return JSON.
@@ -101,30 +157,146 @@ async function withChatRequestHeaders(init?: RequestInit) {
 	const bearer = await getChatAuthBearerToken();
 	if (bearer) {
 		headers.set("Authorization", `Bearer ${bearer}`);
+		headers.set(REQUEST_POLICY_PROTOCOL_HEADER, "2");
 	}
 
 	return headers;
 }
 
-export async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
+/**
+ * Fetch with request-boundary credentials: the admission grant (when held) and
+ * protocol header are attached, and a single 401 retry re-bootstraps once.
+ *
+ * A 401 is an admission rejection: the handler never ran, so retrying a
+ * mutation after renewal cannot double-execute it.
+ */
+export async function authorizedFetch(url: string, init?: RequestInit): Promise<Response> {
 	const resolvedUrl = resolveChatApiUrl(url);
-
-	const attempt = async (allowRetry: boolean): Promise<T> => {
+	const attempt = async (allowRetry: boolean): Promise<Response> => {
 		const headers = await withChatRequestHeaders(init);
 		const response = await fetch(resolvedUrl, { ...init, headers });
 		if (response.status === 401 && allowRetry) {
 			clearChatAuthBearerTokenCache();
 			return attempt(false);
 		}
-		if (!response.ok) {
-			const body = await response.text();
-			throw new ChatRequestError(response.status, body);
-		}
-		return (await response.json()) as T;
+		return response;
 	};
-
 	return attempt(true);
 }
+
+export async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
+	const response = await authorizedFetch(url, init);
+	if (!response.ok) {
+		const body = await response.text();
+		throw new ChatRequestError(response.status, body);
+	}
+	return (await response.json()) as T;
+}
+
+// --- SSE over authorized fetch -------------------------------------------
+//
+// The native EventSource API cannot send Authorization headers, so the request
+// boundary (which requires the grant on every non-bootstrap API route) breaks
+// it. FetchEventSource preserves the surface the event hooks rely on
+// (onmessage with { data, lastEventId }, onerror, close) while carrying the
+// admission headers. Reconnect cadence stays owned by the hooks, exactly as
+// with native EventSource.
+
+export type FetchEventMessage = { data: string; lastEventId: string | null };
+
+function parseSseFrame(frame: string): FetchEventMessage | null {
+	const data: string[] = [];
+	let lastEventId: string | null = null;
+	for (const line of frame.split("\n")) {
+		if (line.startsWith(":")) continue; // comment / heartbeat
+		if (line.startsWith("id:")) lastEventId = line.slice(3).trim();
+		else if (line.startsWith("data:")) data.push(line.slice(5).replace(/^ /, ""));
+	}
+	if (data.length === 0) return null;
+	return { data: data.join("\n"), lastEventId };
+}
+
+/**
+ * The structural surface the event hooks depend on. Kept as an interface
+ * (not `typeof FetchEventSource`) because the class carries private members,
+ * which would make the type nominally incompatible with the lightweight stubs
+ * tests install via setEventStreamConstructorForTests.
+ */
+export interface EventStreamLike {
+	onopen?: (() => void) | null;
+	onmessage?: ((event: FetchEventMessage) => void) | null;
+	onerror?: (() => void) | null;
+	close(): void;
+}
+
+export type EventStreamConstructor = new (url: string) => EventStreamLike;
+
+/**
+ * The stream class the event hooks instantiate. Tests swap this via
+ * setEventStreamConstructorForTests to inject a controllable stub; production
+ * always uses FetchEventSource.
+ */
+export let eventStreamConstructor: EventStreamConstructor;
+
+export function setEventStreamConstructorForTests(replacement: EventStreamConstructor | null): void {
+	eventStreamConstructor = replacement ?? FetchEventSource;
+}
+
+export class FetchEventSource implements EventStreamLike {
+	private readonly controller = new AbortController();
+	private closed = false;
+	onopen: (() => void) | null = null;
+	onmessage: ((event: FetchEventMessage) => void) | null = null;
+	onerror: (() => void) | null = null;
+
+	constructor(url: string) {
+		void this.run(url);
+	}
+
+	private async run(url: string): Promise<void> {
+		try {
+			const response = await authorizedFetch(url, {
+				method: "GET",
+				headers: { accept: "text/event-stream" },
+				cache: "no-store",
+				signal: this.controller.signal,
+			});
+			if (!response.ok || !response.body) {
+				this.onerror?.();
+				return;
+			}
+			this.onopen?.();
+			const reader = response.body.getReader();
+			const decoder = new TextDecoder();
+			let buffer = "";
+			for (;;) {
+				const { value, done } = await reader.read();
+				if (done) break;
+				buffer += decoder.decode(value, { stream: true });
+				let separator = buffer.indexOf("\n\n");
+				while (separator !== -1) {
+					const rawFrame = buffer.slice(0, separator);
+					buffer = buffer.slice(separator + 2);
+					const message = parseSseFrame(rawFrame);
+					if (message) this.onmessage?.(message);
+					separator = buffer.indexOf("\n\n");
+				}
+			}
+			// Server-closed stream: surface as an error so the hook reconnects,
+			// matching how the hooks treated EventSource failures.
+			if (!this.closed) this.onerror?.();
+		} catch {
+			if (!this.closed) this.onerror?.();
+		}
+	}
+
+	close(): void {
+		this.closed = true;
+		this.controller.abort();
+	}
+}
+
+eventStreamConstructor = FetchEventSource;
 
 export async function fetchValidatedJson<T>(url: string, schema: ZodType<T>, init?: RequestInit): Promise<T> {
 	const data = await fetchJson<unknown>(url, init);

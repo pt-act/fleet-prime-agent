@@ -1,4 +1,5 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
+import { type FetchEventMessage, setEventStreamConstructorForTests } from "./chat-fetch";
 import type {
 	ChatRequest,
 	ChatSessionInfo,
@@ -118,14 +119,14 @@ function createHarness(sessionId = "session-a", availableSessions: Array<ChatSes
 	const eventSources: TestEventSource[] = [];
 	class TestEventSource {
 		onerror: (() => void) | null = null;
-		onmessage: ((event: MessageEvent<string>) => void) | null = null;
+		onmessage: ((event: FetchEventMessage) => void) | null = null;
 		readonly close = vi.fn();
 
 		constructor(_url: string) {
 			eventSources.push(this);
 		}
 	}
-	vi.stubGlobal("EventSource", TestEventSource);
+	setEventStreamConstructorForTests(TestEventSource);
 
 	const streams: Array<StreamCall> = [];
 	const persistSession = vi.fn();
@@ -176,6 +177,7 @@ function createHarness(sessionId = "session-a", availableSessions: Array<ChatSes
 describe("usePiChat stream admission", () => {
 	afterEach(() => {
 		vi.unstubAllGlobals();
+	setEventStreamConstructorForTests(null);
 	});
 
 	it("binds queued submissions to their originating session and releases the next post on queue admission", async () => {

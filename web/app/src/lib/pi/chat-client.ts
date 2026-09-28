@@ -73,8 +73,14 @@ import {
 } from "@prime-agent/web-protocol/chat-protocol.zod";
 import { type UploadedAttachment, UploadedAttachmentSchema } from "@prime-agent/web-protocol/fleet-contract";
 import { z } from "zod/v4";
-import { clearChatAuthBearerTokenCache, getChatAuthBearerToken } from "@/lib/auth-stub";
-import { ChatRequestError, fetchJson, fetchValidatedJson, metadataUrl, readChatStream } from "./chat-fetch";
+import {
+	authorizedFetch,
+	ChatRequestError,
+	fetchJson,
+	fetchValidatedJson,
+	metadataUrl,
+	readChatStream,
+} from "./chat-fetch";
 import { resolveChatApiUrl } from "./chat-runtime-url";
 
 const ProjectResponseSchema = z.object({ project: ProjectSummarySchema });
@@ -296,7 +302,7 @@ export const chatClient: ChatClient = {
 		const form = new FormData();
 		form.set("sessionId", sessionId);
 		for (const file of files) form.append("files", file);
-		const response = await fetch(resolveChatApiUrl("/api/chat/session"), {
+		const response = await authorizedFetch("/api/chat/session", {
 			method: "POST",
 			body: form,
 		});
@@ -359,34 +365,19 @@ export const chatClient: ChatClient = {
 	},
 
 	async streamMessage(request, onEvent, signal) {
-		const attempt = async (allowRetry: boolean): Promise<void> => {
-			const headers = new Headers({ "Content-Type": "application/json" });
-			const bearer = await getChatAuthBearerToken();
-			if (bearer) {
-				headers.set("Authorization", `Bearer ${bearer}`);
-			}
+		const response = await authorizedFetch("/api/chat", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(request),
+			signal,
+		});
 
-			const response = await fetch(resolveChatApiUrl("/api/chat"), {
-				method: "POST",
-				headers,
-				body: JSON.stringify(request),
-				signal,
-			});
+		if (!response.ok) {
+			const body = await response.text();
+			throw new ChatRequestError(response.status, body);
+		}
 
-			if (response.status === 401 && allowRetry) {
-				clearChatAuthBearerTokenCache();
-				return attempt(false);
-			}
-
-			if (!response.ok) {
-				const body = await response.text();
-				throw new ChatRequestError(response.status, body);
-			}
-
-			await readChatStream(response, onEvent);
-		};
-
-		await attempt(true);
+		await readChatStream(response, onEvent);
 	},
 
 	async getProviders() {

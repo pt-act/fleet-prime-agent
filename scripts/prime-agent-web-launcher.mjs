@@ -18,6 +18,7 @@ const httpServer = createServer((request, response) => {
 });
 
 let shuttingDown = false;
+let serverAddress = null;
 
 httpServer.on("error", (error) => {
 	if (!shuttingDown) {
@@ -31,6 +32,7 @@ const address = httpServer.address();
 if (!address || typeof address === "string") {
 	throw new Error("Web server did not report a TCP address");
 }
+serverAddress = address;
 console.log(`Fleet Prime interface: http://${formatHost(address.address)}:${address.port}`);
 
 const shutdown = (signal) => {
@@ -50,8 +52,18 @@ async function handleRequest(request, response) {
 	try {
 		if (!isAllowedRequest(request)) {
 			response.statusCode = 403;
-			response.setHeader("content-type", "text/plain; charset=utf-8");
-			response.end("Loopback requests only");
+			response.setHeader("content-type", "application/json; charset=utf-8");
+			response.setHeader("cache-control", "no-store");
+			response.end(
+				JSON.stringify({
+					error: {
+						code: "ORIGIN_DENIED",
+						message: "Same-origin loopback requests only",
+						retryable: false,
+						requestId: "launcher-gate",
+					},
+				}),
+			);
 			return;
 		}
 		const requestUrl = new URL(
@@ -73,6 +85,13 @@ async function handleRequest(request, response) {
 			}
 		}
 
+		// Trusted header: only this launcher may state the bound origin.
+		// Any client-supplied value is dropped and overwritten.
+		headers.delete(BOUND_ORIGIN_HEADER);
+		if (serverAddress && typeof serverAddress === "object") {
+			headers.set(BOUND_ORIGIN_HEADER, `http://${formatHost(serverAddress.address)}:${serverAddress.port}`);
+		}
+
 		const hasBody = request.method !== "GET" && request.method !== "HEAD";
 		const webRequest = new Request(requestUrl, {
 			method: request.method,
@@ -87,6 +106,10 @@ async function handleRequest(request, response) {
 		for (const [name, value] of webResponse.headers) {
 			if (name === "set-cookie") continue;
 			response.setHeader(name, value);
+		}
+		const responseContentType = webResponse.headers.get("content-type");
+		if (responseContentType && responseContentType.includes("text/html")) {
+			response.setHeader("content-security-policy", "frame-ancestors 'none'");
 		}
 		if (cookies && cookies.length > 0) response.setHeader("set-cookie", cookies);
 
@@ -126,7 +149,11 @@ function resolveStaticPath(pathname) {
 function serveStaticFile(request, response, filePath) {
 	const stat = statSync(filePath);
 	response.statusCode = 200;
-	response.setHeader("content-type", contentType(filePath));
+	const staticType = contentType(filePath);
+	response.setHeader("content-type", staticType);
+	if (staticType.startsWith("text/html")) {
+		response.setHeader("content-security-policy", "frame-ancestors 'none'");
+	}
 	response.setHeader("content-length", stat.size);
 	if (request.method === "HEAD") {
 		response.end();
@@ -200,24 +227,55 @@ function isLoopbackHostname(hostname) {
 	return hostname === "127.0.0.1" || hostname === "localhost" || hostname === "::1";
 }
 
+const LOOPBACK_HOSTNAMES = new Set(["127.0.0.1", "localhost", "::1"]);
+const BOUND_ORIGIN_HEADER = "x-fleet-bound-origin";
+
+/** Dependency-free mirror of the protocol helper parseHostAuthority. */
+function parseAuthority(authority) {
+	let host = String(authority).trim();
+	let port = null;
+	const bracketEnd = host.indexOf("]");
+	if (host.startsWith("[") && bracketEnd !== -1) {
+		const suffix = host.slice(bracketEnd + 1);
+		if (suffix.startsWith(":")) port = suffix.slice(1);
+		host = host.slice(1, bracketEnd);
+	} else if (host.includes(":") && host.indexOf(":") === host.lastIndexOf(":")) {
+		const colon = host.indexOf(":");
+		port = host.slice(colon + 1);
+		host = host.slice(0, colon);
+	}
+	if (port !== null && !/^\d+$/.test(port)) port = null;
+	return { hostname: host.toLowerCase(), port };
+}
+
+/**
+ * Exact-origin gate (request-boundary spec): the Host authority must be a
+ * loopback hostname on the bound port, and a present Origin header must match
+ * that authority exactly. Mirrors evaluateRequestOrigin in
+ * web/protocol/src/schemas/request-policy.ts — this standalone launcher keeps
+ * a dependency-free copy of the rule.
+ */
 function isAllowedRequest(request) {
 	const hostHeader = request.headers.host;
-	if (!hostHeader) return false;
-	let host;
-	try {
-		host = new URL(`http://${hostHeader}`).hostname.replace(/^\[|\]$/g, "");
-	} catch {
-		return false;
-	}
-	if (!isLoopbackHostname(host)) return false;
+	if (!hostHeader || serverAddress === null || typeof serverAddress !== "object") return false;
+	const authority = parseAuthority(hostHeader);
+	if (!LOOPBACK_HOSTNAMES.has(authority.hostname)) return false;
+	if (authority.port === null || Number(authority.port) !== serverAddress.port) return false;
 
 	const origin = request.headers.origin;
-	if (!origin) return true;
+	if (origin === undefined || origin === null) return true;
+	if (origin === "null" || origin === "") return false;
+	let parsed;
 	try {
-		return isLoopbackHostname(new URL(origin).hostname.replace(/^\[|\]$/g, ""));
+		parsed = new URL(origin);
 	} catch {
 		return false;
 	}
+	if (parsed.protocol !== "http:") return false;
+	const originHostname = parsed.hostname.replace(/^\[|\]$/g, "").toLowerCase();
+	if (!LOOPBACK_HOSTNAMES.has(originHostname)) return false;
+	const originPort = parsed.port || "80";
+	return originPort === authority.port && originHostname === authority.hostname;
 }
 
 function parsePort(value) {

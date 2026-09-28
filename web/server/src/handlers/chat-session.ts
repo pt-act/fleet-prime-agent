@@ -10,7 +10,7 @@ import { wrapApiHandler } from "../wrap-api-handler";
  * @returns A response containing session metadata, messages, plan presentations, and presentation data
  */
 export function handleChatSessionGet(request: Request): Promise<Response> {
-	return wrapApiHandler(async () => {
+	return wrapApiHandler(request, async () => {
 		const url = new URL(request.url);
 		const parentSessionId = url.searchParams.get("parentSessionId");
 		const childId = url.searchParams.get("childId");

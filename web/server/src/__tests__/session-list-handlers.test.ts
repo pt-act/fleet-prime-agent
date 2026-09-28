@@ -5,6 +5,7 @@ import { handleChatSessionsGet } from "../handlers/chat-sessions";
 import { handleProjectsGet } from "../handlers/projects";
 import type { BridgeSession, PrimeBridge } from "../prime-bridge";
 import { resetBridgeForTests, setBridgeForTests } from "../singleton";
+import { testRequest } from "./test-request";
 
 const legacySession = {
 	id: "legacy-session",
@@ -33,7 +34,7 @@ describe("session list handlers", () => {
 	it("preserves the session contract for legacy id-only rows", async () => {
 		installLegacyBridge();
 
-		const response = await handleChatSessionsGet(new Request("http://localhost/api/chat/sessions"));
+		const response = await handleChatSessionsGet(testRequest("http://localhost:3000/api/chat/sessions"));
 
 		expect(response.status).toBe(200);
 		expect(ChatSessionsResponseSchema.parse(await response.json()).sessions[0]).toMatchObject({
@@ -48,7 +49,7 @@ describe("session list handlers", () => {
 	it("preserves project session IDs for legacy id-only rows", async () => {
 		installLegacyBridge();
 
-		const response = await handleProjectsGet(new Request("http://localhost/api/projects"));
+		const response = await handleProjectsGet(testRequest("http://localhost:3000/api/projects"));
 
 		expect(response.status).toBe(200);
 		expect(ProjectListResponseSchema.parse(await response.json()).sessions[0]).toMatchObject({
@@ -72,7 +73,7 @@ describe("session list handlers", () => {
 			resetForTests: vi.fn(),
 		} as unknown as PrimeBridge);
 
-		const response = await handleChatSessionsGet(new Request("http://localhost/api/chat/sessions"));
+		const response = await handleChatSessionsGet(testRequest("http://localhost:3000/api/chat/sessions"));
 
 		expect(response.status).toBe(200);
 		expect(ChatSessionsResponseSchema.parse(await response.json()).sessions[0]?.status).toBe("running");
@@ -96,7 +97,7 @@ describe("session list handlers", () => {
 			resetForTests: vi.fn(),
 		} as unknown as PrimeBridge);
 
-		const response = await handleChatSessionsGet(new Request("http://localhost/api/chat/sessions"));
+		const response = await handleChatSessionsGet(testRequest("http://localhost:3000/api/chat/sessions"));
 
 		expect(response.status).toBe(200);
 		expect(ChatSessionsResponseSchema.parse(await response.json()).sessions[0]).toMatchObject({
@@ -119,7 +120,7 @@ describe("session list handlers", () => {
 			resetForTests: vi.fn(),
 		} as unknown as PrimeBridge);
 
-		const response = await handleChatSessionsGet(new Request("http://localhost/api/chat/sessions"));
+		const response = await handleChatSessionsGet(testRequest("http://localhost:3000/api/chat/sessions"));
 
 		expect(ChatSessionsResponseSchema.parse(await response.json()).sessions[0]).toMatchObject({
 			sessionId: "child-session-id",
@@ -134,11 +135,12 @@ describe("session list handlers", () => {
 			resetForTests: vi.fn(),
 		} as unknown as PrimeBridge);
 
-		const response = await handleChatSessionsGet(new Request("http://localhost/api/chat/sessions"));
-		const body = (await response.json()) as { message: string };
+		const response = await handleChatSessionsGet(testRequest("http://localhost:3000/api/chat/sessions"));
+		const body = (await response.json()) as { error?: { code?: string; message?: string } };
 
 		expect(response.status).toBe(500);
-		expect(body.message).toBe("The Prime Agent session listing returned an invalid session entry");
-		expect(body.message).not.toContain(process.cwd());
+		expect(body.error?.code).toBe("INTERNAL_ERROR");
+		expect(body.error?.message).toBe("Internal server error");
+		expect(JSON.stringify(body)).not.toContain(process.cwd());
 	});
 });

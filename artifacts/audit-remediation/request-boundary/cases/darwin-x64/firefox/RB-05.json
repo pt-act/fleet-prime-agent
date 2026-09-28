@@ -1,0 +1,134 @@
+{
+	"caseId": "RB-05",
+	"verdict": "pass",
+	"assertions": [
+		{
+			"observed": "true",
+			"expected": "app-driven API requests observed (10)",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/providers carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/providers carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/projects carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/projects carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/models carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/models carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/resources carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/resources carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/commands carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/commands carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/settings carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/settings carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/workspace/tree carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/workspace/tree carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/sessions carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/session?sessionId=01a0e259-c4cb-735f-8742-a682a21753d6&projectId=a0937e1b-8eac-4d65-88a2-2483e9a4500a&openUI=true carries the Bearer grant",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "app request http://127.0.0.1:59867/api/chat/session?sessionId=01a0e259-c4cb-735f-8742-a682a21753d6&projectId=a0937e1b-8eac-4d65-88a2-2483e9a4500a&openUI=true carries X-Fleet-Protocol: 2",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "old tab surfaces an actionable reload notice after the 401/426 denial",
+			"pass": true
+		},
+		{
+			"observed": "true",
+			"expected": "old-style mutation without grant -> 401 AUTH_REQUIRED (got 401)",
+			"pass": true
+		}
+	],
+	"command": "pnpm --filter @prime-agent/web exec playwright test --config=playwright/audit/request-boundary.config.ts --grep \"(^| )RB-05( |$)\"",
+	"exitCode": 0,
+	"sourceCommit": "32a49b13df7bed0df2d4d30736fc9d4487b38ee0",
+	"environment": {
+		"platform": "darwin x64",
+		"node": "v24.1.0",
+		"project": "firefox",
+		"launchPaths": "dev+launcher"
+	},
+	"evidencePaths": [
+		"/Users/rna/Desktop/fleet prime agent/fleet-prime-agent/.worktrees/request-boundary-round1/artifacts/audit-remediation/request-boundary/cases/darwin-x64/firefox/RB-05.json"
+	],
+	"timestamp": "2026-09-27T10:12:25.719Z"
+}
